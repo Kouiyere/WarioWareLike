@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vmwu356qwdwc"
-path="res://.godot/imported/itinéraires 1.png-c764f6e438ebfe3c996afcf865223ef5.ctex"
+uid="uid://b75x166mvj33a"
+path="res://.godot/imported/vrai (grand).png-926d5efb79354452ecbc6b64867f150a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphismes/itinéraires 1.png"
-dest_files=["res://.godot/imported/itinéraires 1.png-c764f6e438ebfe3c996afcf865223ef5.ctex"]
+source_file="res://graphismes/vrai (grand).png"
+dest_files=["res://.godot/imported/vrai (grand).png-926d5efb79354452ecbc6b64867f150a.ctex"]
 
 [params]
 

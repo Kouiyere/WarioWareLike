@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vmwu356qwdwc"
-path="res://.godot/imported/itinéraires 1.png-c764f6e438ebfe3c996afcf865223ef5.ctex"
+uid="uid://b76seq4ry3qa5"
+path="res://.godot/imported/GPS (gros).png-456f5c08379ed869d6c02169099637f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphismes/itinéraires 1.png"
-dest_files=["res://.godot/imported/itinéraires 1.png-c764f6e438ebfe3c996afcf865223ef5.ctex"]
+source_file="res://graphismes/GPS (gros).png"
+dest_files=["res://.godot/imported/GPS (gros).png-456f5c08379ed869d6c02169099637f8.ctex"]
 
 [params]
 
