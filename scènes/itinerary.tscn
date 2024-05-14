@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0p84eg8wsmry"]
 
 [ext_resource type="Script" path="res://scènes/itinerary.gd" id="1_sn4yn"]
-[ext_resource type="Texture2D" uid="uid://dtrnd37hmq0wq" path="res://graphismes/GPS.png" id="2_3o22u"]
+[ext_resource type="Texture2D" uid="uid://b76seq4ry3qa5" path="res://graphismes/GPS (gros).png" id="2_sx4kd"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lmgw6"]
 
@@ -11,8 +11,8 @@ script = ExtResource("1_sn4yn")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Fond" type="Sprite2D" parent="."]
-scale = Vector2(5.8, 5.8)
-texture = ExtResource("2_3o22u")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_sx4kd")
 
 [node name="Starting points" type="Sprite2D" parent="."]
 
