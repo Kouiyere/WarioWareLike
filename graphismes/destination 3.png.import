@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtrnd37hmq0wq"
-path="res://.godot/imported/GPS.png-b23ae7b256aa1cfc17f9eb5e009e6edf.ctex"
+uid="uid://derbwt7sh1bdf"
+path="res://.godot/imported/destination 3.png-373529074d1271cd36e2c69bc3bac25b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphismes/GPS.png"
-dest_files=["res://.godot/imported/GPS.png-b23ae7b256aa1cfc17f9eb5e009e6edf.ctex"]
+source_file="res://graphismes/destination 3.png"
+dest_files=["res://.godot/imported/destination 3.png-373529074d1271cd36e2c69bc3bac25b.ctex"]
 
 [params]
 
