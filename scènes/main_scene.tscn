@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bapfev2evht12"]
+
+[ext_resource type="Script" path="res://main_scene.gd" id="1_dlfjk"]
+[ext_resource type="PackedScene" uid="uid://c5k5t7j0vim0q" path="res://node_2d.tscn" id="1_uhukd"]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_dlfjk")
+
+[node name="PrefabEnemi" parent="." instance=ExtResource("1_uhukd")]
