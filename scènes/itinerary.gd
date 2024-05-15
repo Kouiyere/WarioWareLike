@@ -2,6 +2,7 @@ extends Node2D
 
 var answer: Area2D
 var starting_points: Array[Node]
+var path
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,7 @@ func _ready():
 	answer.clicked.disconnect(wrongAnswer)
 	answer.clicked.connect(rightAnswer)
 	print(answer)
+	
 
 func rightAnswer():
 	print("Yeaaah")

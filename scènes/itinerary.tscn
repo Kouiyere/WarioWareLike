@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0p84eg8wsmry"]
+[gd_scene load_steps=6 format=3 uid="uid://b0p84eg8wsmry"]
 
 [ext_resource type="Script" path="res://scènes/itinerary.gd" id="1_sn4yn"]
 [ext_resource type="Texture2D" uid="uid://b76seq4ry3qa5" path="res://graphismes/GPS (gros).png" id="2_sx4kd"]
 [ext_resource type="PackedScene" uid="uid://bqqehv5snc5gl" path="res://scènes/itinerary_start.tscn" id="3_pmyb4"]
+[ext_resource type="Texture2D" uid="uid://ivedjde1nh5g" path="res://graphismes/destination 1.png" id="5_dhikf"]
+[ext_resource type="Script" path="res://scènes/Path.gd" id="5_f4ted"]
 
 [node name="Itinerary" type="Node2D"]
 script = ExtResource("1_sn4yn")
@@ -10,14 +12,20 @@ script = ExtResource("1_sn4yn")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Fond" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_sx4kd")
 
 [node name="Itinerary Start" parent="." instance=ExtResource("3_pmyb4")]
-position = Vector2(-160, 200)
+position = Vector2(-100, 150)
 
 [node name="Itinerary Start2" parent="." instance=ExtResource("3_pmyb4")]
-position = Vector2(0, 200)
+position = Vector2(0, 150)
 
 [node name="Itinerary Start3" parent="." instance=ExtResource("3_pmyb4")]
-position = Vector2(160, 200)
+position = Vector2(100, 150)
+
+[node name="Path" type="Sprite2D" parent="."]
+script = ExtResource("5_f4ted")
+
+[node name="Finish" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_dhikf")
