@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c04tsvxgj0k0"
-path="res://.godot/imported/itinéraires 3.png-c87bf4e46ae0fd80d79953d740283728.ctex"
+uid="uid://dv86l8otts28x"
+path="res://.godot/imported/fond valises.png-ea966d37e5546014af23759b4afdad15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphismes/itinéraires 3.png"
-dest_files=["res://.godot/imported/itinéraires 3.png-c87bf4e46ae0fd80d79953d740283728.ctex"]
+source_file="res://graphismes/fond valises.png"
+dest_files=["res://.godot/imported/fond valises.png-ea966d37e5546014af23759b4afdad15.ctex"]
 
 [params]
 
