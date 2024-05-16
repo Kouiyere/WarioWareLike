@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scènes/itinerary.gd" id="1_sn4yn"]
 [ext_resource type="Texture2D" uid="uid://b76seq4ry3qa5" path="res://graphismes/GPS (gros).png" id="2_sx4kd"]
 [ext_resource type="PackedScene" uid="uid://bqqehv5snc5gl" path="res://scènes/itinerary_start.tscn" id="3_pmyb4"]
-[ext_resource type="Texture2D" uid="uid://bskuupawwjl8k" path="res://graphismes/itinéraires 1.png" id="4_uyb4p"]
+[ext_resource type="Texture2D" uid="uid://dfi6rhxn77r0e" path="res://graphismes/itinéraires 2.png" id="4_gle5g"]
 [ext_resource type="Script" path="res://scènes/Path.gd" id="5_f4ted"]
 [ext_resource type="Script" path="res://scènes/Itinerary End.gd" id="6_ihuy5"]
 [ext_resource type="Texture2D" uid="uid://d1awg74wv8mbo" path="res://graphismes/passagère.png" id="7_tj4jk"]
@@ -17,29 +17,30 @@ script = ExtResource("1_sn4yn")
 texture = ExtResource("2_sx4kd")
 
 [node name="Itinerary Start" parent="." instance=ExtResource("3_pmyb4")]
-position = Vector2(-100, 150)
+position = Vector2(-120, 150)
 
 [node name="Itinerary Start2" parent="." instance=ExtResource("3_pmyb4")]
 position = Vector2(0, 150)
 
 [node name="Itinerary Start3" parent="." instance=ExtResource("3_pmyb4")]
-position = Vector2(100, 150)
+position = Vector2(112, 150)
 
 [node name="Path" type="Sprite2D" parent="."]
-texture = ExtResource("4_uyb4p")
+position = Vector2(-17, 13)
+texture = ExtResource("4_gle5g")
 script = ExtResource("5_f4ted")
 
 [node name="Itinerary End" type="Node2D" parent="."]
 script = ExtResource("6_ihuy5")
 
 [node name="End1" type="Sprite2D" parent="Itinerary End"]
-position = Vector2(-100, -125)
+position = Vector2(-125, -125)
 
 [node name="End2" type="Sprite2D" parent="Itinerary End"]
 position = Vector2(0, -125)
 
 [node name="End3" type="Sprite2D" parent="Itinerary End"]
-position = Vector2(100, -125)
+position = Vector2(123, -125)
 
 [node name="Passagère" type="Sprite2D" parent="."]
 position = Vector2(437, -2)
