@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1awg74wv8mbo"
-path="res://.godot/imported/passagère.png-59e5bed47bfbb246c7c31a640319e226.ctex"
+uid="uid://bq0t2bfru0kcu"
+path="res://.godot/imported/passagère (en grand).png-76e1bf5c8e5d08d177c9570c0004786b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphismes/passagère.png"
-dest_files=["res://.godot/imported/passagère.png-59e5bed47bfbb246c7c31a640319e226.ctex"]
+source_file="res://graphismes/passagère (en grand).png"
+dest_files=["res://.godot/imported/passagère (en grand).png-76e1bf5c8e5d08d177c9570c0004786b.ctex"]
 
 [params]
 
