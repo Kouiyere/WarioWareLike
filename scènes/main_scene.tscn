@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bapfev2evht12"]
+[gd_scene load_steps=5 format=3 uid="uid://bapfev2evht12"]
 
-[ext_resource type="Script" path="res://main_scene.gd" id="1_dlfjk"]
-[ext_resource type="PackedScene" uid="uid://c5k5t7j0vim0q" path="res://node_2d.tscn" id="1_uhukd"]
+[ext_resource type="Script" path="res://scènes/main_scene.gd" id="1_hros6"]
+[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scènes/ValiseBleu.tscn" id="2_i75l2"]
+[ext_resource type="PackedScene" uid="uid://bst0x1o5e50vu" path="res://scènes/ValiseJaune.tscn" id="3_ed6h2"]
+[ext_resource type="PackedScene" uid="uid://d0akyut4it1l5" path="res://scènes/valise_rouge.tscn" id="4_a6fpm"]
 
 [node name="MainScene" type="Node2D"]
-script = ExtResource("1_dlfjk")
+script = ExtResource("1_hros6")
 
-[node name="PrefabEnemi" parent="." instance=ExtResource("1_uhukd")]
+[node name="ValiseBleu" parent="." instance=ExtResource("2_i75l2")]
+
+[node name="ValiseJaune" parent="." instance=ExtResource("3_ed6h2")]
+
+[node name="ValiseRouge" parent="." instance=ExtResource("4_a6fpm")]

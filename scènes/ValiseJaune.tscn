@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://bst0x1o5e50vu"]
+
+[ext_resource type="Script" path="res://scènes/node_2d.gd" id="1_ivj82"]
+[ext_resource type="Script" path="res://scènes/Node2D.gd" id="2_sdgpq"]
+[ext_resource type="Texture2D" uid="uid://bgqvbtug2a8d" path="res://graphismes/valise jaune.svg" id="3_tx0e1"]
+[ext_resource type="Script" path="res://scènes/Sprite2D.gd" id="4_2qfk8"]
+[ext_resource type="Script" path="res://scènes/Area2D.gd" id="5_h6t6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f83lf"]
+size = Vector2(49, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37c40"]
+size = Vector2(22, 48)
+
+[node name="ValiseJaune" type="Node2D"]
+script = ExtResource("1_ivj82")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(127, 51)
+script = ExtResource("2_sdgpq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("3_tx0e1")
+script = ExtResource("4_2qfk8")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+script = ExtResource("5_h6t6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("RectangleShape2D_f83lf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("RectangleShape2D_37c40")

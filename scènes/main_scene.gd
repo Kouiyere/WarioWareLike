@@ -1,10 +1,8 @@
 extends Node2D
 class_name Main
 
-var vie:int
-
-
-
+var intValiseRechercher=1
+var vie=3
 var x:int
 var y:int
 var min=0
@@ -18,12 +16,16 @@ func _ready():
 	_initialise() # Replace with function body.
 	
 func _initialise():
-	var prefab = preload("res://node_2d.tscn")
+	var prefab_bleu = preload("res://scènes/node_2d.tscn")
+	var prefab_jaune= preload("res://scènes/ValiseJaune.tscn")
+	var prefab_rouge= preload("res://scènes/valise_rouge.tscn")
 	for i in range(10):
 		print("nouvelle valise dans Main")
 		var rng = RandomNumberGenerator.new()
-		instance = prefab.instantiate()
+		instance = prefab_bleu.instantiate()
 		add_child(instance)
+		if(i == intValiseRechercher):
+			get_child(0).get_child(0).get_child(1).estChercher=true
 		instance.z_index=i
 		x=rng.randi_range(min,max)
 		y=rng.randi_range(min,max)
@@ -32,9 +34,10 @@ func _initialise():
 
 func echec():
 	vie=vie-1
+	listCouche=[]
 	if(vie==0):
 		defait()
-	print("defait")
+		print("defait")
 
 func defait():
 	pass
@@ -55,7 +58,8 @@ func _process(delta):
 	if(finDePartie):
 		for i in listCouche:
 			if(coucheDeLaVallise<i):
-				print("défait")
+				print("echec")
 				echec()
+				pass
 		victoir()
 	finDePartie=false
