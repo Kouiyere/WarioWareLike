@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://b11iqvmepw10d"]
+[gd_scene load_steps=13 format=3 uid="uid://b11iqvmepw10d"]
 
 [ext_resource type="Texture2D" uid="uid://dqw15j8mmk1c2" path="res://graphismes/fond foule.png" id="1_v1hj4"]
 [ext_resource type="Texture2D" uid="uid://bkgbyhvuerkyv" path="res://graphismes/joueur_1.png" id="2_v2usl"]
+[ext_resource type="Script" path="res://scènes/Camera2D.gd" id="2_ynvgn"]
+[ext_resource type="Script" path="res://scènes/Joueur.gd" id="3_5necb"]
+[ext_resource type="AudioStream" path="res://sons/musique foule.wav" id="4_masic"]
+[ext_resource type="Texture2D" uid="uid://mdsm8tgajc8s" path="res://graphismes/ennemi_1.png" id="6_acrbq"]
+[ext_resource type="Script" path="res://scènes/Enemi.gd" id="6_b5s8f"]
+[ext_resource type="AudioStream" uid="uid://bwox0spm78sb0" path="res://sons/coup.wav" id="7_1ldep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0tf03"]
+radius = 20.025
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m3mc"]
+size = Vector2(50, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48dmu"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1etl"]
+size = Vector2(44, 623)
 
 [node name="Foule" type="Node2D"]
 
@@ -9,10 +27,68 @@
 position = Vector2(605, 274)
 texture = ExtResource("1_v1hj4")
 
-[node name="Joueur" type="Sprite2D" parent="."]
-position = Vector2(607, 581)
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(605, 527)
+zoom = Vector2(2.75, 2.75)
+script = ExtResource("2_ynvgn")
+player = NodePath("../Player")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(607, 326)
+collision_layer = 2
+script = ExtResource("6_b5s8f")
+
+[node name="Ennemi1" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("6_acrbq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_0tf03")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("7_1ldep")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(603, 624)
+script = ExtResource("3_5necb")
+
+[node name="Joueur" type="Sprite2D" parent="Player"]
+position = Vector2(5, -18)
 texture = ExtResource("2_v2usl")
 
-[node name="Camera2D" type="Camera2D" parent="Joueur"]
-position = Vector2(-3, 2)
-zoom = Vector2(2.75, 2.75)
+[node name="Collision_Joueur" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_0tf03")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(5, -18)
+shape = SubResource("RectangleShape2D_7m3mc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-459, 31)
+stream = ExtResource("4_masic")
+autoplay = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(618, 11)
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_48dmu")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(417, 373)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, -39.5)
+shape = SubResource("RectangleShape2D_h1etl")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(793, 373)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(0, -39.5)
+shape = SubResource("RectangleShape2D_h1etl")
+
+[connection signal="mouse_entered" from="Player/Area2D" to="Player" method="_on_area_2d_mouse_entered"]
