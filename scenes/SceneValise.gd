@@ -10,7 +10,7 @@ var randomiseColor:float
 
 var max=100
 
-var min=0
+var min=20
 
 var instance
 static var listCouche = []
@@ -35,13 +35,14 @@ func _initialise():
 			instance = prefab_rouge.instantiate()
 
 		add_child(instance)
-		if(i == intValiseRechercher):
+		if(i == intValiseRechercher and false):
 			get_child(0).get_child(0).get_child(1).estChercher=true
-		instance.z_index=i
+			
+		#instance.z_index=i
 		x=rng.randi_range(min,max)
 		y=rng.randi_range(min,max)
 		instance.position= Vector2(x,y)
-		instance.visible=true
+		#instance.visible=true
 
 func echec():
 	print("defait")

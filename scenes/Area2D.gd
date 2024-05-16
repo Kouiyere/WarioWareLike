@@ -43,6 +43,7 @@ func _ready():
 
 func _on_mouse_entered():
 	drapeauxbool=true
+	print("entrer")
 
 func _on_mouse_exited():
 	drapeauxbool=false
@@ -96,5 +97,7 @@ func _input(event):
 			# Clic gauche de la souris
 			#print("Clic gauche de la souris détecté à la position : ", event.position)
 			SceneValise.toucher(z_index,estChercher)
+			print(z_index)
+			print(estChercher)
 	
 			
