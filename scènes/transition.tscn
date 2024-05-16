@@ -1,13 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg3f6silvlusq"]
+[gd_scene format=3 uid="uid://dg3f6silvlusq"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8ad6a"]
-
-[node name="Transition" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Fond" type="Sprite2D" parent="."]
-
-[node name="Train" type="Sprite2D" parent="."]
-position = Vector2(0, 150)
-texture = SubResource("PlaceholderTexture2D_8ad6a")
+[node name="TransitionScene" type="Node2D"]
