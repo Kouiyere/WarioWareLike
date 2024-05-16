@@ -1,16 +1,20 @@
 extends Node2D
-class_name Main
+class_name SceneValise
 
 var intValiseRechercher=1
 var vie=3
 var x:int
 var y:int
+var randomiseColor:float
+
+var max=100
 var min=0
-var max=1000
+
 var instance
 static var listCouche = []
 static var finDePartie=false
 static var coucheDeLaVallise=-1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_initialise() # Replace with function body.
@@ -20,9 +24,14 @@ func _initialise():
 	var prefab_jaune= preload("res://scènes/ValiseJaune.tscn")
 	var prefab_rouge= preload("res://scènes/valise_rouge.tscn")
 	for i in range(10):
-		print("nouvelle valise dans Main")
+		print("nouvelle valise dans SceneValise")
 		var rng = RandomNumberGenerator.new()
-		instance = prefab_bleu.instantiate()
+		randomiseColor=randf()
+		if(randomiseColor>0.5):
+			instance = prefab_bleu.instantiate()
+		else:
+			instance = prefab_rouge.instantiate()
+
 		add_child(instance)
 		if(i == intValiseRechercher):
 			get_child(0).get_child(0).get_child(1).estChercher=true
@@ -33,21 +42,16 @@ func _initialise():
 		instance.visible=true
 
 func echec():
-	vie=vie-1
-	listCouche=[]
-	if(vie==0):
-		defait()
-		print("defait")
+	print("defait")
 
-func defait():
-	pass
 
 func victoir():
-	pass
+	print("victoir")
 	
 static func toucher( valise, boolean):
 	if(boolean):
 		coucheDeLaVallise=valise
+		print("trouver!")
 	else:
 		listCouche.append(valise)
 	finDePartie=true
@@ -57,9 +61,11 @@ static func toucher( valise, boolean):
 func _process(delta):
 	if(finDePartie):
 		for i in listCouche:
+			print(i)
+			print(coucheDeLaVallise)
 			if(coucheDeLaVallise<i):
-				print("echec")
 				echec()
-				pass
 		victoir()
+		listCouche=[]
 	finDePartie=false
+	

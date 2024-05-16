@@ -1,13 +1,13 @@
 extends Node2D
 class_name Valise
+@export var zone:Area2D
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-		
+	$Node2D/Area2D.zone=zone
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
