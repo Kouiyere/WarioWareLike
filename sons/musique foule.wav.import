@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvjn0nj3mi2dk"
+path="res://.godot/imported/musique foule.wav-0a603c5792409420606192f56e1dade1.sample"
+
+[deps]
+
+source_file="res://sons/musique foule.wav"
+dest_files=["res://.godot/imported/musique foule.wav-0a603c5792409420606192f56e1dade1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
