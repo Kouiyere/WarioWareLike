@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WarioWareLike"
-run/main_scene="res://scènes/cadran_minigame.tscn"
+run/main_scene="res://scènes/itinerary.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jucuh1rrn681"]
+[gd_scene load_steps=12 format=3 uid="uid://c6y5brgi0yy5r"]
 
 [ext_resource type="Texture2D" uid="uid://c1y7nkee6mdpg" path="res://graphismes/fond charbon.png" id="1_5kfa4"]
 [ext_resource type="Script" path="res://scènes/fourneau_minigame.gd" id="1_fmolh"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bpmrre1ptxypw" path="res://graphismes/feu.png" id="6_sioci"]
 [ext_resource type="Texture2D" uid="uid://dmkls2wwx0yq" path="res://graphismes/pelle 1.png" id="7_yv60g"]
 [ext_resource type="Script" path="res://scènes/Pelle.gd" id="8_b66px"]
+[ext_resource type="Texture2D" uid="uid://bx81o47ehvuwr" path="res://graphismes/mec_locomotive.png" id="8_ehy55"]
+[ext_resource type="AudioStream" path="res://sons/musique charbon.wav" id="9_msgx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7i0u"]
 
@@ -41,8 +43,17 @@ shape = SubResource("RectangleShape2D_k7i0u")
 position = Vector2(245, -129)
 texture = ExtResource("6_sioci")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-459, 31)
+stream = ExtResource("9_msgx5")
+autoplay = true
+
+[node name="MecLocomotive" type="Sprite2D" parent="."]
+position = Vector2(-57, 70)
+texture = ExtResource("8_ehy55")
+
 [node name="Pelle" type="Sprite2D" parent="."]
-position = Vector2(-200, 16)
+position = Vector2(-147, 86)
 texture = ExtResource("7_yv60g")
 script = ExtResource("8_b66px")
 
