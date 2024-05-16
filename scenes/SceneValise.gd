@@ -10,7 +10,7 @@ var randomiseColor:float
 
 var max=100
 
-var min=20
+var min=40
 
 var instance
 static var listCouche = []
@@ -22,21 +22,18 @@ func _ready():
 	_initialise() # Replace with function body.
 	
 func _initialise():
-	var prefab_bleu = preload("res://scenes/ValiseBleu.tscn")
-	var prefab_jaune= preload("res://scenes/ValiseJaune.tscn")
-	var prefab_rouge= preload("res://scenes/ValiseRouge.tscn")
-	for i in range(10):
+	var prefab_bleu = preload("res://valise.tscn")
+	for i in range(0):
 		print("nouvelle valise dans SceneValise")
 		var rng = RandomNumberGenerator.new()
 		randomiseColor=randf()
+		instance = prefab_bleu.instantiate()
 		if(randomiseColor>0.5):
-			instance = prefab_bleu.instantiate()
-		else:
-			instance = prefab_rouge.instantiate()
+			instance.texture=load("res://graphismes/valise rouge.svg")
 
 		add_child(instance)
 		if(i == intValiseRechercher and false):
-			get_child(0).get_child(0).get_child(1).estChercher=true
+			get_child(0).estChercher=true
 			
 		#instance.z_index=i
 		x=rng.randi_range(min,max)
