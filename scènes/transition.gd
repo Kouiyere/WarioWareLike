@@ -5,3 +5,7 @@ signal transitionEnd
 
 func _on_timer_timeout():
 	transitionEnd.emit()
+
+
+func reload():
+	$Timer.start()
