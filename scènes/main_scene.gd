@@ -15,5 +15,5 @@ func _ready():
 
 func loadMinigame():
 	var sceneID: int = randi() % MINIGAME_SCENES_ARRAY.size()
-	load(MINIGAME_SCENES_ARRAY[sceneID])
+	get_tree().change_scene_to_file(MINIGAME_SCENES_ARRAY[sceneID])
 
