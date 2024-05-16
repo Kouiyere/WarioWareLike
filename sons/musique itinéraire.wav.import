@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3wrbd2101btm"
+path="res://.godot/imported/musique itinéraire.wav-6f3330252fac9579c1474060c88f56f5.sample"
+
+[deps]
+
+source_file="res://sons/musique itinéraire.wav"
+dest_files=["res://.godot/imported/musique itinéraire.wav-6f3330252fac9579c1474060c88f56f5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

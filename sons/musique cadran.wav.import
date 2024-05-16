@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dd3pg7eirq7uv"
+path="res://.godot/imported/musique cadran.wav-8ac4b5c7d17f730aa2cf79af1d92482e.sample"
+
+[deps]
+
+source_file="res://sons/musique cadran.wav"
+dest_files=["res://.godot/imported/musique cadran.wav-8ac4b5c7d17f730aa2cf79af1d92482e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
