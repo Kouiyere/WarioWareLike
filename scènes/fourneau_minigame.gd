@@ -1,5 +1,8 @@
 extends Node2D
 
+signal win
+signal lose
+
 var jauge: Node2D
 @export var speed: float
 var clickArea: Area2D
@@ -15,8 +18,7 @@ func _process(delta):
 	jauge.position.y += speed * delta
 	
 	if jauge.position.y > 175 || jauge.position.y < -175:
-		print("game over")
-		get_tree().reload_current_scene()
+		lose.emit()
 
 func moveJaugeUp():
 	jauge.position.y -= 100
