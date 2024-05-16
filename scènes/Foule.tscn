@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b11iqvmepw10d"]
+
+[ext_resource type="Texture2D" uid="uid://dqw15j8mmk1c2" path="res://graphismes/fond foule.png" id="1_v1hj4"]
+[ext_resource type="Texture2D" uid="uid://bkgbyhvuerkyv" path="res://graphismes/joueur_1.png" id="2_v2usl"]
+
+[node name="Foule" type="Node2D"]
+
+[node name="FondFoule" type="Sprite2D" parent="."]
+position = Vector2(605, 274)
+texture = ExtResource("1_v1hj4")
+
+[node name="Joueur" type="Sprite2D" parent="."]
+position = Vector2(607, 581)
+texture = ExtResource("2_v2usl")
+
+[node name="Camera2D" type="Camera2D" parent="Joueur"]
+position = Vector2(-3, 2)
+zoom = Vector2(2.75, 2.75)
