@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scenes/ValiseBleu.tscn" id="1_6r66f"]
 [ext_resource type="Script" path="res://scenes/SceneValise.gd" id="1_21ay2"]
-[ext_resource type="PackedScene" uid="uid://d1d8eg0pkhgof" path="res://scenes/ValiseJaune.tscn" id="2_3tfrc"]
-[ext_resource type="PackedScene" uid="uid://hs8pnq7d2fcc" path="res://scenes/ValiseRouge.tscn" id="3_m53hk"]
+[ext_resource type="PackedScene" uid="uid://bdgmympitocxs" path="res://scenes/ValiseJaune.tscn" id="2_3tfrc"]
+[ext_resource type="PackedScene" uid="uid://c3jvfgwxomdul" path="res://scenes/ValiseRouge.tscn" id="3_m53hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dii0"]
 size = Vector2(1155, 674)
