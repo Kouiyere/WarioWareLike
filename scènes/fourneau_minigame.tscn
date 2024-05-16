@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://jucuh1rrn681"]
+[gd_scene load_steps=7 format=3 uid="uid://jucuh1rrn681"]
+
+[ext_resource type="Texture2D" uid="uid://c1y7nkee6mdpg" path="res://graphismes/fond charbon.png" id="1_5kfa4"]
+[ext_resource type="Script" path="res://scènes/fourneau_minigame.gd" id="1_fmolh"]
+[ext_resource type="Texture2D" uid="uid://8nihtefn4qec" path="res://graphismes/jauge.png" id="3_ear2j"]
+[ext_resource type="Texture2D" uid="uid://n3vp6bb4vjck" path="res://graphismes/remplisage jauge.png" id="4_ua5xb"]
+[ext_resource type="Script" path="res://scènes/ClickableArea.gd" id="5_xngp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7i0u"]
 
 [node name="Fourneau Minigame" type="Node2D"]
+script = ExtResource("1_fmolh")
+speed = 400.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Fond" type="Sprite2D" parent="."]
+position = Vector2(-75, 0)
+texture = ExtResource("1_5kfa4")
+
+[node name="Jauge fond" type="Sprite2D" parent="."]
+position = Vector2(500, -12)
+scale = Vector2(1, 2)
+texture = ExtResource("3_ear2j")
+
+[node name="Jauge" type="Sprite2D" parent="."]
+position = Vector2(500, 0)
+texture = ExtResource("4_ua5xb")
+
+[node name="ClickableArea" type="Area2D" parent="."]
+script = ExtResource("5_xngp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea"]
+scale = Vector2(60, 35)
+shape = SubResource("RectangleShape2D_k7i0u")
+
+[connection signal="input_event" from="ClickableArea" to="ClickableArea" method="_on_input_event"]
