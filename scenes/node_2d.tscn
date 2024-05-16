@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5k5t7j0vim0q"]
 
-[ext_resource type="Script" path="res://scènes/Node2D.gd" id="1_a2hc5"]
-[ext_resource type="Script" path="res://scènes/node_2d.gd" id="1_ncr4b"]
-[ext_resource type="Script" path="res://scènes/Sprite2D.gd" id="2_vam3f"]
-[ext_resource type="Script" path="res://scènes/Area2D.gd" id="3_1tbjh"]
+[ext_resource type="Script" path="res://scenes/Node2D.gd" id="1_a2hc5"]
+[ext_resource type="Script" path="res://scenes/node_2d.gd" id="1_ncr4b"]
+[ext_resource type="Script" path="res://scenes/Sprite2D.gd" id="2_vam3f"]
+[ext_resource type="Script" path="res://scenes/Area2D.gd" id="3_1tbjh"]
 [ext_resource type="Texture2D" uid="uid://b31mydjr4gl3c" path="res://graphismes/valise bleue.svg" id="3_llmrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f83lf"]

@@ -7,7 +7,9 @@ var x:int
 var y:int
 var randomiseColor:float
 
+
 var max=100
+
 var min=0
 
 var instance
@@ -20,9 +22,9 @@ func _ready():
 	_initialise() # Replace with function body.
 	
 func _initialise():
-	var prefab_bleu = preload("res://scènes/node_2d.tscn")
-	var prefab_jaune= preload("res://scènes/ValiseJaune.tscn")
-	var prefab_rouge= preload("res://scènes/valise_rouge.tscn")
+	var prefab_bleu = preload("res://scenes/node_2d.tscn")
+	var prefab_jaune= preload("res://scenes/ValiseJaune.tscn")
+	var prefab_rouge= preload("res://scenes/ValiseRouge.tscn")
 	for i in range(10):
 		print("nouvelle valise dans SceneValise")
 		var rng = RandomNumberGenerator.new()
@@ -58,6 +60,7 @@ static func toucher( valise, boolean):
 	print("Toucher !")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	if(finDePartie):
 		for i in listCouche:

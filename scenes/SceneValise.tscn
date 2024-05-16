@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bapfev2evht12"]
 
-[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scènes/ValiseBleu.tscn" id="1_6r66f"]
-[ext_resource type="Script" path="res://scènes/SceneValise.gd" id="1_21ay2"]
-[ext_resource type="PackedScene" uid="uid://bst0x1o5e50vu" path="res://scènes/ValiseJaune.tscn" id="2_3tfrc"]
-[ext_resource type="PackedScene" uid="uid://d0akyut4it1l5" path="res://scènes/valise_rouge.tscn" id="3_m53hk"]
+[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scenes/ValiseBleu.tscn" id="1_6r66f"]
+[ext_resource type="Script" path="res://scenes/SceneValise.gd" id="1_21ay2"]
+[ext_resource type="PackedScene" uid="uid://d1d8eg0pkhgof" path="res://scenes/ValiseJaune.tscn" id="2_3tfrc"]
+[ext_resource type="PackedScene" uid="uid://hs8pnq7d2fcc" path="res://scenes/ValiseRouge.tscn" id="3_m53hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dii0"]
 size = Vector2(1155, 674)
@@ -12,7 +12,6 @@ size = Vector2(1155, 674)
 script = ExtResource("1_21ay2")
 
 [node name="ValiseBleu" parent="." node_paths=PackedStringArray("zone") instance=ExtResource("1_6r66f")]
-visible = false
 position = Vector2(577, 132)
 zone = NodePath("../Area2D")
 
@@ -21,8 +20,7 @@ position = Vector2(201, 137)
 zone = NodePath("../Area2D")
 
 [node name="ValiseRouge" parent="." node_paths=PackedStringArray("zone") instance=ExtResource("3_m53hk")]
-visible = false
-position = Vector2(86, 163)
+position = Vector2(151, 315)
 zone = NodePath("../Area2D")
 
 [node name="Area2D" type="Area2D" parent="."]

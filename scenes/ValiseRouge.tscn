@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgbfp52ochmxy"]
+[gd_scene load_steps=8 format=3 uid="uid://hs8pnq7d2fcc"]
 
-[ext_resource type="Script" path="res://scènes/node_2d.gd" id="1_iyk4s"]
-[ext_resource type="Script" path="res://scènes/Node2D.gd" id="2_ov20u"]
-[ext_resource type="Texture2D" uid="uid://b31mydjr4gl3c" path="res://graphismes/valise bleue.svg" id="3_b6nn8"]
-[ext_resource type="Script" path="res://scènes/Sprite2D.gd" id="4_disir"]
-[ext_resource type="Script" path="res://scènes/Area2D.gd" id="5_alogr"]
+[ext_resource type="Script" path="res://scenes/node_2d.gd" id="1_klx2u"]
+[ext_resource type="Script" path="res://scenes/Node2D.gd" id="2_0uk4c"]
+[ext_resource type="Texture2D" uid="uid://cv0xe84ox67of" path="res://graphismes/valise rouge.svg" id="3_kdwt0"]
+[ext_resource type="Script" path="res://scenes/Sprite2D.gd" id="4_5b5fo"]
+[ext_resource type="Script" path="res://scenes/Area2D.gd" id="5_hr6i6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f83lf"]
 size = Vector2(49, 29)
@@ -13,17 +13,17 @@ size = Vector2(49, 29)
 size = Vector2(22, 48)
 
 [node name="ValiseBleu" type="Node2D"]
-script = ExtResource("1_iyk4s")
+script = ExtResource("1_klx2u")
 
 [node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("2_ov20u")
+script = ExtResource("2_0uk4c")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-texture = ExtResource("3_b6nn8")
-script = ExtResource("4_disir")
+texture = ExtResource("3_kdwt0")
+script = ExtResource("4_5b5fo")
 
 [node name="Area2D" type="Area2D" parent="Node2D"]
-script = ExtResource("5_alogr")
+script = ExtResource("5_hr6i6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 shape = SubResource("RectangleShape2D_f83lf")

@@ -16,7 +16,7 @@ var direction
 var maxVitesse=0
 var vitesse
 var zone:Area2D
-
+ 
 @export var max_x=100
 @export var max_y=100
 @export var min_x=0

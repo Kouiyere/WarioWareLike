@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0akyut4it1l5"]
-
-[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scènes/ValiseBleu.tscn" id="1_irfaf"]
-[ext_resource type="Texture2D" uid="uid://cv0xe84ox67of" path="res://graphismes/valise rouge.svg" id="3_nddsj"]
-
-[node name="ValiseBleu" instance=ExtResource("1_irfaf")]
-
-[node name="Sprite2D" parent="Node2D" index="0"]
-texture = ExtResource("3_nddsj")
