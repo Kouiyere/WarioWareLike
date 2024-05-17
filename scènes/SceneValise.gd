@@ -5,7 +5,7 @@ var timer_limit=3000
 var number_valise=0
 signal win
 signal lose
-
+var blockbool
 var intValiseRechercher=1
 var x:int
 var y:int
@@ -56,13 +56,19 @@ func toucher():
 	for i in listCouche:
 		if(coucheDeLaVallise<i):
 			#print("defait")
-			lose.emit()
+			if(blockbool):
+				lose.emit()
+				blockbool=false
+			
+			
 	if(len(listCouche)==0):
 		#print("defait")
-		lose.emit()
+		if(blockbool):
+			lose.emit()
 	else:
 		#print("victoir")
-		win.emit()
+		if(blockbool):
+			win.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
