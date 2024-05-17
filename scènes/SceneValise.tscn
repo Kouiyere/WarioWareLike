@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://lamic8hnfn6a"]
+[gd_scene load_steps=6 format=3 uid="uid://bl1j5uweqoymj"]
 
 [ext_resource type="Script" path="res://scènes/SceneValise.gd" id="1_21ay2"]
-[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]
-[ext_resource type="PackedScene" uid="uid://bdgmympitocxs" path="res://scènes/ValiseJaune.tscn" id="3_w8xj7"]
-[ext_resource type="PackedScene" uid="uid://c3jvfgwxomdul" path="res://scènes/ValiseRouge.tscn" id="4_2awod"]
+[ext_resource type="PackedScene" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]
+[ext_resource type="PackedScene" path="res://scènes/ValiseJaune.tscn" id="3_w8xj7"]
+[ext_resource type="PackedScene" path="res://scènes/ValiseRouge.tscn" id="4_2awod"]
 [ext_resource type="Texture2D" uid="uid://dv86l8otts28x" path="res://graphismes/fond valises.png" id="5_3y54b"]
 
 [node name="SceneValise" type="Node2D"]
