@@ -50,7 +50,7 @@ func _ready():
 	mouse_exited.connect(_on_mouse_exited)
 	parent_node = get_parent().get_parent()
 	grand_parant=parent_node.get_parent()
-	maxVitesse=rng.randi_range(2,10)
+	maxVitesse=rng.randi_range(1,8)
 	_limit()
 
 func _on_mouse_entered():
@@ -78,7 +78,7 @@ func _process(delta):
 	_limit()
 	if(timer_avance>-1):
 		timer_avance-=1
-		parent_node.position+=vector*0.5
+		parent_node.position+=vector*0.4
 		
 	if(false):
 		if (timer<20):#Timer

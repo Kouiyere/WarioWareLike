@@ -13,6 +13,7 @@ var MINIGAME_SCENES_ARRAY: Array = [
 	"res://scènes/cadran_minigame.tscn"
 ]
 @export var health: int
+var currentMinigamID: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,13 +24,19 @@ func _ready():
 
 
 func loadMinigame():
-	var sceneID: int = randi() % MINIGAME_SCENES_ARRAY.size()
-	var path: String = MINIGAME_SCENES_ARRAY[sceneID]
+	var IDs : Array
+	for scene in MINIGAME_SCENES_ARRAY:
+		IDs.push_back(MINIGAME_SCENES_ARRAY.find(scene))
+	IDs.remove_at(IDs.find(currentMinigamID))
+	
+	var IDtoLoad : int = IDs[randi() % IDs.size()]
+	var path: String = MINIGAME_SCENES_ARRAY[IDtoLoad]
 	var minigameScene = load(path)
 	minigame = minigameScene.instantiate()
 	add_child(minigame)
 	minigame.win.connect(minigameWon)
 	minigame.lose.connect(minigameLost)
+	currentMinigamID = IDtoLoad
 	transitionScene.visible = false
 
 func minigameWon():
@@ -46,3 +53,4 @@ func minigameLost():
 	transitionScene.visible = true
 	defaite.play()
 	transitionScene.reload()
+
