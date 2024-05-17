@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bapfev2evht12"]
 
 [ext_resource type="Script" path="res://scènes/main_scene.gd" id="1_vv73u"]
-[ext_resource type="PackedScene" uid="uid://ck2gihq7st4u7" path="res://scènes/transition.tscn" id="2_qn361"]
+[ext_resource type="PackedScene" uid="uid://rwf8imjhj3u5" path="res://scènes/transition.tscn" id="2_qn361"]
 [ext_resource type="AudioStream" uid="uid://bhs0dilafrtej" path="res://sons/Victoire mini-jeu.wav" id="3_128sf"]
 [ext_resource type="AudioStream" uid="uid://bwpii4j1j6374" path="res://sons/Défaite mini-jeu.wav" id="4_vha0a"]
 [ext_resource type="AudioStream" uid="uid://d2csgbsaughpx" path="res://sons/Game Over.mp3" id="5_58gwn"]
