@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://eqv2h2jaogep"]
+[gd_scene load_steps=13 format=3 uid="uid://d3hrvas3gkf6v"]
 
 [ext_resource type="Script" path="res://scènes/SceneValise.gd" id="1_21ay2"]
-[ext_resource type="PackedScene" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]
-[ext_resource type="PackedScene" path="res://scènes/ValiseJaune.tscn" id="3_w8xj7"]
-[ext_resource type="PackedScene" path="res://scènes/ValiseRouge.tscn" id="4_2awod"]
+[ext_resource type="PackedScene" uid="uid://c3r863lsl1hr0" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]
+[ext_resource type="PackedScene" uid="uid://bve001r4oyb22" path="res://scènes/ValiseJaune.tscn" id="3_w8xj7"]
+[ext_resource type="PackedScene" uid="uid://3n5pc5fridkj" path="res://scènes/ValiseRouge.tscn" id="4_2awod"]
 [ext_resource type="Texture2D" uid="uid://dv86l8otts28x" path="res://graphismes/fond valises.png" id="5_3y54b"]
+[ext_resource type="Texture2D" uid="uid://t2fv5qy6qsch" path="res://graphismes/pouce en l'air.svg" id="6_1ffdm"]
+[ext_resource type="Texture2D" uid="uid://dyvbwrm48qe2o" path="res://graphismes/pouce à l'envers.svg" id="9_ldvad"]
+[ext_resource type="Texture2D" uid="uid://15e01ety32rx" path="res://graphismes/mec.svg" id="10_br3du"]
+[ext_resource type="Texture2D" uid="uid://c5m1jjph5gpa" path="res://graphismes/bouche.svg" id="11_tvkgo"]
+[ext_resource type="Texture2D" uid="uid://bx4ohigsau6or" path="res://graphismes/sourcils.svg" id="12_elt8e"]
+[ext_resource type="AudioStream" uid="uid://dggsdscm0rsjw" path="res://sons/musique valises2.mp3" id="12_uejax"]
+
+[sub_resource type="GDScript" id="GDScript_xfggw"]
+resource_name = "Pouce"
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="SceneValise" type="Node2D"]
 script = ExtResource("1_21ay2")
@@ -31,3 +52,35 @@ offset_top = -34.0
 offset_right = -252.0
 offset_bottom = -11.0
 text = "Find me !"
+
+[node name="PouceEnL\'air" type="Sprite2D" parent="."]
+position = Vector2(-467, 637)
+texture = ExtResource("6_1ffdm")
+script = SubResource("GDScript_xfggw")
+
+[node name="PouceÀL\'envers" type="Sprite2D" parent="."]
+position = Vector2(-264, 722)
+texture = ExtResource("9_ldvad")
+
+[node name="Mec" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-767, 734)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("10_br3du")
+
+[node name="Bouche" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-653, 611)
+scale = Vector2(2.41, 2.41)
+texture = ExtResource("11_tvkgo")
+
+[node name="Sourcils" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-911, 601)
+scale = Vector2(2.715, 2.715)
+texture = ExtResource("12_elt8e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-407, 734)
+stream = ExtResource("12_uejax")
+autoplay = true

@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var victoire= $victoire
+@onready var defaite= $defaite
+@onready var GameOver= $GameOver
+@onready var transition= $Transition
 var transitionScene: Node2D
 var minigame
 var MINIGAME_SCENES_ARRAY: Array = [
@@ -12,6 +16,7 @@ var MINIGAME_SCENES_ARRAY: Array = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	transition.play()
 	transitionScene = find_child("TransitionScene")
 	load("TransitionScene")
 	transitionScene.transitionEnd.connect(loadMinigame)
@@ -31,6 +36,7 @@ func minigameWon():
 	print("you win")
 	minigame.queue_free()
 	transitionScene.visible = true
+	victoire.play()
 	transitionScene.reload()
 
 func minigameLost():
@@ -38,4 +44,5 @@ func minigameLost():
 	health -= 1
 	minigame.queue_free()
 	transitionScene.visible = true
+	defaite.play()
 	transitionScene.reload()
