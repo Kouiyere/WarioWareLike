@@ -11,9 +11,9 @@ var x:int
 var y:int
 var randomiseColor:float
 var timer_oclock
-var max=400-400
+var max=200
 
-var min=10-500
+var min=-200
 
 var instance
 var listCouche = []
@@ -30,7 +30,7 @@ func _initialise():
 	var prefab_jaune = preload("res://scènes/ValiseJaune.tscn")
 	var prefab_rouge = preload("res://scènes/ValiseRouge.tscn")
 	var rng = RandomNumberGenerator.new()
-	number_valise=rng.randi_range(5,15)
+	number_valise=rng.randi_range(5,20)
 	intValiseRechercher=rng.randi_range(1,number_valise-1)
 	for i in range(number_valise):
 		print("nouvelle valise dans SceneValise")
