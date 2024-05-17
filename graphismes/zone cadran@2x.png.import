@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m0uxgf2y0t2a"
-path="res://.godot/imported/zone cadran.png-265df7a2d73d3b9b481f0ce64cba2a96.ctex"
+uid="uid://wwan8bx3b54w"
+path="res://.godot/imported/zone cadran@2x.png-421fdc3930dc748a91d64a9e5e15d44b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphismes/zone cadran.png"
-dest_files=["res://.godot/imported/zone cadran.png-265df7a2d73d3b9b481f0ce64cba2a96.ctex"]
+source_file="res://graphismes/zone cadran@2x.png"
+dest_files=["res://.godot/imported/zone cadran@2x.png-421fdc3930dc748a91d64a9e5e15d44b.ctex"]
 
 [params]
 
