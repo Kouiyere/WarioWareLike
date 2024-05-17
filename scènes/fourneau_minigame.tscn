@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6y5brgi0yy5r"]
+[gd_scene load_steps=14 format=3 uid="uid://jucuh1rrn681"]
 
 [ext_resource type="Texture2D" uid="uid://c1y7nkee6mdpg" path="res://graphismes/fond charbon.png" id="1_5kfa4"]
 [ext_resource type="Script" path="res://scènes/fourneau_minigame.gd" id="1_fmolh"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dmkls2wwx0yq" path="res://graphismes/pelle 1.png" id="7_yv60g"]
 [ext_resource type="Script" path="res://scènes/Pelle.gd" id="8_b66px"]
 [ext_resource type="Texture2D" uid="uid://bx81o47ehvuwr" path="res://graphismes/mec_locomotive.png" id="8_ehy55"]
-[ext_resource type="AudioStream" path="res://sons/musique charbon.wav" id="9_msgx5"]
+[ext_resource type="AudioStream" uid="uid://b2upsese8x0jw" path="res://sons/musique charbon.wav" id="9_msgx5"]
+[ext_resource type="Script" path="res://scènes/FourneauReadyText.gd" id="11_e6y7d"]
+[ext_resource type="PackedScene" uid="uid://bnp4b3plvljw6" path="res://scènes/minigame_timer_clock.tscn" id="12_fo5wq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7i0u"]
 
@@ -57,4 +59,30 @@ position = Vector2(-147, 86)
 texture = ExtResource("7_yv60g")
 script = ExtResource("8_b66px")
 
+[node name="Ready Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="FourneauReadyText" type="RichTextLabel" parent="."]
+offset_left = -195.0
+offset_top = -171.0
+offset_right = -71.0
+offset_bottom = -131.0
+theme_override_font_sizes/normal_font_size = 38
+text = "Ready"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 0
+script = ExtResource("11_e6y7d")
+
+[node name="LabelTimer" type="Timer" parent="FourneauReadyText"]
+one_shot = true
+autostart = true
+
+[node name="Minigame Timer Clock" parent="." instance=ExtResource("12_fo5wq")]
+position = Vector2(-444, -220)
+
 [connection signal="input_event" from="ClickableArea" to="ClickableArea" method="_on_input_event"]
+[connection signal="timeout" from="Ready Timer" to="Minigame Timer Clock" method="_on_ready_timer_timeout"]
+[connection signal="timeout" from="FourneauReadyText/LabelTimer" to="FourneauReadyText" method="_on_label_timer_timeout"]
