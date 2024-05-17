@@ -38,7 +38,7 @@ func minigameWon():
 	son_victoire.play()
 	minigame.queue_free()
 	Camera2D.enabled= true
-	#transitionScene.visible = true
+	transitionScene.visible = true
 	transitionScene.reload()
 
 func minigameLost():
@@ -47,5 +47,5 @@ func minigameLost():
 	health -= 1
 	minigame.queue_free()
 	Camera2D.enabled= true
-	#transitionScene.visible = true
+	transitionScene.visible = true
 	transitionScene.reload()
