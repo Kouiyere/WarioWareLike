@@ -13,12 +13,13 @@ var rng = RandomNumberGenerator.new()
 var min=0
 var max=4
 var direction
-var maxVitesse=10
+var maxVitesse=0
 var vitesse
 var zone:Area2D
 var vector:Vector2
 var timer_avance=-1
 var distance_avance=15
+var grand_parant
 @export var max_x=1000
 @export var max_y=1000
 @export var min_x=200
@@ -41,16 +42,17 @@ func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	parent_node = get_parent().get_parent()
+	grand_parant=parent_node.get_parent()
 	_limit()
 
 func _on_mouse_entered():
 	drapeauxbool=true
-	SceneValise._estPresent(parent_node.z_index,estChercher)
+	grand_parant._estPresent(parent_node.z_index,estChercher)
 	
 
 func _on_mouse_exited():
 	drapeauxbool=false
-	SceneValise._estAbscan(parent_node.z_index,estChercher)
+	grand_parant._estAbscan(parent_node.z_index,estChercher)
 	
 func _avance(direction,vitesse):
 	timer_avance=distance_avance
@@ -102,6 +104,6 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and drapeauxbool:
 			# Clic gauche de la souris
 			#print("Clic gauche de la souris détecté à la position : ", event.position)
-			SceneValise.toucher()
+			grand_parant.toucher()
 	
 			

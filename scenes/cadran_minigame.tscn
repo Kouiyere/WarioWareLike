@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dov1ks8p7vuu1"]
+[gd_scene load_steps=4 format=3 uid="uid://dov1ks8p7vuu1"]
 
-[ext_resource type="Script" path="res://scènes/cadran_minigame.gd" id="1_p6x1w"]
 [ext_resource type="Texture2D" uid="uid://byp2pbfm6qf3v" path="res://graphismes/aiguille.png" id="2_wx4bc"]
 [ext_resource type="Texture2D" uid="uid://c0s586k4au87x" path="res://graphismes/cadran.png" id="3_qtv80"]
-[ext_resource type="AudioStream" path="res://sons/musique cadran.wav" id="4_ojkf1"]
+[ext_resource type="AudioStream" uid="uid://dd3pg7eirq7uv" path="res://sons/musique cadran.wav" id="4_ojkf1"]
 
 [node name="CadranMinigame" type="Node2D"]
-script = ExtResource("1_p6x1w")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

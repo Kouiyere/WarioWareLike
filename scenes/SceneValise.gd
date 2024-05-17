@@ -1,21 +1,21 @@
 extends Node2D
 class_name SceneValise
 
+signal win
+signal lose
+
 var intValiseRechercher=1
-var vie=3
 var x:int
 var y:int
 var randomiseColor:float
-static var blockbool=true
 
 var max=200
 
 var min=40
 
 var instance
-static var listCouche = []
-static var finDePartie=false
-static var coucheDeLaVallise=-1
+var listCouche = []
+var coucheDeLaVallise=-1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,34 +45,26 @@ func _initialise():
 		instance.position= Vector2(x,y)
 		instance.visible=true
 	
-static func echec():
-	if(blockbool):
-		blockbool=true
-		print("defait")
-
-
-static func victoir():
-	if(blockbool):
-		blockbool=true
-		print("victoir")
+		
 	
-static func toucher():
+func toucher():
 	for i in listCouche:
 		if(coucheDeLaVallise<i):
-			echec()
+			lose.emit()
 	if(len(listCouche)==0):
-		echec()
+		lose.emit()
 	else:
-		victoir()
+		win.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-static func _estPresent(valise, boolean):
+func _estPresent(valise, boolean):
 	if(boolean):
 		coucheDeLaVallise=valise
 	listCouche.append(valise)
 	print(listCouche,coucheDeLaVallise)
-static func _estAbscan(valise,boolean):
+	
+func _estAbscan(valise,boolean):
 	if(boolean):
 		coucheDeLaVallise=-1
 	listCouche.erase(valise)
