@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scenes/Area2D.gd" id="5_lsqu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f83lf"]
-size = Vector2(49, 29)
+size = Vector2(54.5, 31.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37c40"]
-size = Vector2(22, 48)
+size = Vector2(23, 56)
 
 [node name="ValiseBleu" type="Node2D"]
 
@@ -20,7 +20,9 @@ texture = ExtResource("3_y63fs")
 script = ExtResource("5_lsqu6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(2.75, 1.25)
 shape = SubResource("RectangleShape2D_f83lf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_37c40")

@@ -13,14 +13,16 @@ var rng = RandomNumberGenerator.new()
 var min=0
 var max=4
 var direction
-var maxVitesse=0
+var maxVitesse=10
 var vitesse
 var zone:Area2D
- 
-@export var max_x=100
-@export var max_y=100
-@export var min_x=0
-@export var min_y=0
+var vector:Vector2
+var timer_avance=-1
+var distance_avance=15
+@export var max_x=1000
+@export var max_y=1000
+@export var min_x=200
+@export var min_y=200
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,34 +40,38 @@ func _limit():
 func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	parent_node = get_parent()
+	parent_node = get_parent().get_parent()
 	_limit()
 
 func _on_mouse_entered():
 	drapeauxbool=true
-	print("entrer")
+	SceneValise._estPresent(parent_node.z_index,estChercher)
+	
 
 func _on_mouse_exited():
 	drapeauxbool=false
+	SceneValise._estAbscan(parent_node.z_index,estChercher)
 	
 func _avance(direction,vitesse):
+	timer_avance=distance_avance
 	if(direction==0):
-		parent_node.position+=Vector2(0,vitesse)
-		_limit()
+		vector=Vector2(0,vitesse)
 	if(direction==1):
-		parent_node.position+=Vector2(vitesse,0)
-		_limit()
+		vector=Vector2(vitesse,0)
 	if(direction==2):
-		parent_node.position+=Vector2(-vitesse,0)
-		_limit()
+		vector=Vector2(-vitesse,0)
 	if(direction==3):
-		parent_node.position+=Vector2(0,-vitesse)
-		_limit()
+		vector=Vector2(0,-vitesse)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
+	_limit()
+	if(timer_avance>-1):
+		timer_avance-=1
+		parent_node.position+=vector
+	
 	if(true):
-		if (timer<100):#Timer
+		if (timer<20):#Timer
 			timer+=1
 		else:
 			timer=0
@@ -96,8 +102,6 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and drapeauxbool:
 			# Clic gauche de la souris
 			#print("Clic gauche de la souris détecté à la position : ", event.position)
-			SceneValise.toucher(z_index,estChercher)
-			print(z_index)
-			print(estChercher)
+			SceneValise.toucher()
 	
 			

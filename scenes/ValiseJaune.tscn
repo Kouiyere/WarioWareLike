@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scenes/Area2D.gd" id="5_dy1gh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f83lf"]
-size = Vector2(49, 29)
+size = Vector2(53.5, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37c40"]
-size = Vector2(22, 48)
+size = Vector2(25, 53)
 
 [node name="ValiseJaune" type="Node2D"]
 
@@ -21,7 +21,9 @@ script = ExtResource("5_dy1gh")
 estChercher = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(2.25, 1.75)
 shape = SubResource("RectangleShape2D_f83lf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(5.5, 0.5)
 shape = SubResource("RectangleShape2D_37c40")
