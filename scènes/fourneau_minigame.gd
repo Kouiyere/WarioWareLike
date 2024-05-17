@@ -6,7 +6,7 @@ signal lose
 var jauge: Node2D
 @export var speed: float
 var clickArea: Area2D
-var label: RichTextLabel
+var label: Label
 var minigameTimer
 
 # Called when the node enters the scene tree for the first time.

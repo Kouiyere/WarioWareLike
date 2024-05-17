@@ -64,16 +64,13 @@ wait_time = 1.5
 one_shot = true
 autostart = true
 
-[node name="FourneauReadyText" type="RichTextLabel" parent="."]
-offset_left = -195.0
-offset_top = -171.0
-offset_right = -71.0
-offset_bottom = -131.0
-theme_override_font_sizes/normal_font_size = 38
+[node name="FourneauReadyText" type="Label" parent="."]
+offset_left = -272.0
+offset_top = -164.0
+offset_right = -63.0
+offset_bottom = -67.0
+theme_override_font_sizes/font_size = 71
 text = "Ready"
-scroll_active = false
-scroll_following = true
-autowrap_mode = 0
 script = ExtResource("11_e6y7d")
 
 [node name="LabelTimer" type="Timer" parent="FourneauReadyText"]

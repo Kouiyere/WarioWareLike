@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dov1ks8p7vuu1"]
+[gd_scene load_steps=9 format=3 uid="uid://dov1ks8p7vuu1"]
 
 [ext_resource type="Script" path="res://scènes/cadran_minigame.gd" id="1_p6x1w"]
 [ext_resource type="Texture2D" uid="uid://j7b13h70oybx" path="res://graphismes/fond cadran.png" id="2_r6xhh"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dd3pg7eirq7uv" path="res://sons/musique cadran.wav" id="4_ojkf1"]
 [ext_resource type="Texture2D" uid="uid://wwan8bx3b54w" path="res://graphismes/zone cadran@2x.png" id="5_y0usj"]
 [ext_resource type="Texture2D" uid="uid://bbby8km56676b" path="res://graphismes/zone cadran vert@2x.png" id="6_m56yq"]
+[ext_resource type="Script" path="res://scènes/CadranReadyText.gd" id="8_tsnko"]
 
 [node name="CadranMinigame" type="Node2D"]
 script = ExtResource("1_p6x1w")
@@ -47,3 +48,25 @@ texture = ExtResource("5_y0usj")
 position = Vector2(71, -178)
 scale = Vector2(0.655, 0.655)
 texture = ExtResource("6_m56yq")
+
+[node name="CadranReadyText" type="Label" parent="."]
+offset_left = -535.0
+offset_top = -75.0
+offset_right = -266.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 91
+text = "Ready"
+script = ExtResource("8_tsnko")
+
+[node name="LabelTimer" type="Timer" parent="CadranReadyText"]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="ReadyTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CadranReadyText/LabelTimer" to="CadranReadyText" method="_on_label_timer_timeout"]
+[connection signal="timeout" from="ReadyTimer" to="." method="_on_ready_timer_timeout"]

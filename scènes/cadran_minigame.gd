@@ -10,7 +10,7 @@ var active: bool
 func _ready():
 	aiguille = find_child("Aiguille")
 	aiguille.set_rotation_degrees(4.7)
-	active = true
+	active = false
 
 func _rotateAiguille(delta):
 	aiguille.set_rotation(aiguille.get_rotation() + delta * 5)
@@ -32,3 +32,7 @@ func _process(delta):
 	if aiguille.get_rotation_degrees() > 265:
 		active = false
 		lose.emit()
+
+
+func _on_ready_timer_timeout():
+	active = true

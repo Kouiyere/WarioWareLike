@@ -5,6 +5,5 @@ extends Label
 func _ready():
 	set_text("Ready")
 
-
 func _on_label_timer_timeout():
-	set_text("Click")
+	set_text("Click to stop")
