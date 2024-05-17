@@ -1,11 +1,16 @@
 extends CharacterBody2D
+class_name Joueur
+
+signal win
 
 var selected= false
-var no_defeat= false
+static var no_defeat= false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print(self)
+	print(get_children())
+	$AnimatedSprite2D.play("walk_player")
 
 func followMouse():
 	position.x= get_global_mouse_position().x
@@ -13,9 +18,12 @@ func followMouse():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if no_defeat== false:
-		move_and_collide(Vector2(0,-2))
+		var collision:= move_and_collide(Vector2(0,-2))
 		if selected:
 			followMouse()
+		if collision and collision.get_collider().name== "Fin":
+			win.emit()
+			set_process(false)
 
 func _unhandled_input(event):
 	

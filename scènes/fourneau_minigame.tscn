@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dmkls2wwx0yq" path="res://graphismes/pelle 1.png" id="7_yv60g"]
 [ext_resource type="Script" path="res://scènes/Pelle.gd" id="8_b66px"]
 [ext_resource type="Texture2D" uid="uid://bx81o47ehvuwr" path="res://graphismes/mec_locomotive.png" id="8_ehy55"]
-[ext_resource type="AudioStream" path="res://sons/musique charbon.wav" id="9_msgx5"]
+[ext_resource type="AudioStream" uid="uid://b2upsese8x0jw" path="res://sons/musique charbon.wav" id="9_msgx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7i0u"]
 

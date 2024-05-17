@@ -1,19 +1,65 @@
-[gd_scene load_steps=13 format=3 uid="uid://b11iqvmepw10d"]
+[gd_scene load_steps=21 format=3 uid="uid://b11iqvmepw10d"]
 
 [ext_resource type="Texture2D" uid="uid://dqw15j8mmk1c2" path="res://graphismes/fond foule.png" id="1_v1hj4"]
 [ext_resource type="Texture2D" uid="uid://bkgbyhvuerkyv" path="res://graphismes/joueur_1.png" id="2_v2usl"]
 [ext_resource type="Script" path="res://scènes/Camera2D.gd" id="2_ynvgn"]
 [ext_resource type="Script" path="res://scènes/Joueur.gd" id="3_5necb"]
-[ext_resource type="AudioStream" path="res://sons/musique foule.wav" id="4_masic"]
+[ext_resource type="AudioStream" uid="uid://bvjn0nj3mi2dk" path="res://sons/musique foule.wav" id="4_masic"]
 [ext_resource type="Texture2D" uid="uid://mdsm8tgajc8s" path="res://graphismes/ennemi_1.png" id="6_acrbq"]
 [ext_resource type="Script" path="res://scènes/Enemi.gd" id="6_b5s8f"]
+[ext_resource type="Texture2D" uid="uid://jq8a05gdx7tt" path="res://graphismes/ennemi_2.png" id="6_dk5fa"]
 [ext_resource type="AudioStream" uid="uid://bwox0spm78sb0" path="res://sons/coup.wav" id="7_1ldep"]
+[ext_resource type="Texture2D" uid="uid://cu3s0rdlcj5lu" path="res://graphismes/ennemi_3.png" id="7_srguq"]
+[ext_resource type="Texture2D" uid="uid://dho78ngrqx4k1" path="res://graphismes/joueur_2.png" id="10_5h7oj"]
+[ext_resource type="Texture2D" uid="uid://d1ii65wvem6ou" path="res://graphismes/joueur_3.png" id="11_ophtq"]
+[ext_resource type="Script" path="res://scènes/collider_de_fin.gd" id="13_fcr5p"]
+[ext_resource type="AudioStream" uid="uid://csyd5xwuerqjj" path="res://sons/tadam.wav" id="14_7erte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tf03"]
 radius = 20.025
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipugo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_acrbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dk5fa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_srguq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dk5fa")
+}],
+"loop": true,
+"name": &"walk_enemy",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7m3mc"]
 size = Vector2(50, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spup6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v2usl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5h7oj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ophtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5h7oj")
+}],
+"loop": true,
+"name": &"walk_player",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48dmu"]
 size = Vector2(640, 20)
@@ -24,6 +70,7 @@ size = Vector2(44, 623)
 [node name="Foule" type="Node2D"]
 
 [node name="FondFoule" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(605, 274)
 texture = ExtResource("1_v1hj4")
 
@@ -33,28 +80,60 @@ zoom = Vector2(2.75, 2.75)
 script = ExtResource("2_ynvgn")
 player = NodePath("../Player")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(607, 326)
 collision_layer = 2
 script = ExtResource("6_b5s8f")
 
-[node name="Ennemi1" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("6_acrbq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, 24)
 shape = SubResource("CircleShape2D_0tf03")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy"]
 stream = ExtResource("7_1ldep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ipugo")
+animation = &"walk_enemy"
+
+[node name="Enemy2" type="CharacterBody2D" parent="."]
+position = Vector2(491, 117)
+collision_layer = 2
+script = ExtResource("6_b5s8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2"]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_0tf03")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy2"]
+stream = ExtResource("7_1ldep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy2"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ipugo")
+animation = &"walk_enemy"
+
+[node name="Enemy3" type="CharacterBody2D" parent="."]
+position = Vector2(712, 117)
+collision_layer = 2
+script = ExtResource("6_b5s8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3"]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_0tf03")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy3"]
+stream = ExtResource("7_1ldep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy3"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ipugo")
+animation = &"walk_enemy"
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(603, 624)
 script = ExtResource("3_5necb")
-
-[node name="Joueur" type="Sprite2D" parent="Player"]
-position = Vector2(5, -18)
-texture = ExtResource("2_v2usl")
 
 [node name="Collision_Joueur" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_0tf03")
@@ -65,17 +144,28 @@ shape = SubResource("CircleShape2D_0tf03")
 position = Vector2(5, -18)
 shape = SubResource("RectangleShape2D_7m3mc")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(6, -18)
+sprite_frames = SubResource("SpriteFrames_spup6")
+animation = &"walk_player"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-459, 31)
 stream = ExtResource("4_masic")
 autoplay = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Fin" type="StaticBody2D" parent="."]
 position = Vector2(618, 11)
 collision_layer = 5
+script = ExtResource("13_fcr5p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fin"]
 shape = SubResource("RectangleShape2D_48dmu")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Fin"]
+position = Vector2(-618, -11)
+stream = ExtResource("14_7erte")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(417, 373)

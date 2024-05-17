@@ -15,10 +15,6 @@ run/main_scene="res://scènes/itinerary.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Joueur="*res://scènes/Joueur.gd"
-
 [input]
 
 LeftClick={
