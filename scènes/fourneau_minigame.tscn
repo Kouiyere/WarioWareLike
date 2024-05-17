@@ -81,7 +81,7 @@ one_shot = true
 autostart = true
 
 [node name="Minigame Timer Clock" parent="." instance=ExtResource("12_fo5wq")]
-position = Vector2(-448, -223)
+position = Vector2(-444, -220)
 
 [connection signal="input_event" from="ClickableArea" to="ClickableArea" method="_on_input_event"]
 [connection signal="timeout" from="Ready Timer" to="Minigame Timer Clock" method="_on_ready_timer_timeout"]
