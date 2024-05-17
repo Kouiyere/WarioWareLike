@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://rwf8imjhj3u5"]
+[gd_scene load_steps=3 format=3 uid="uid://ddpt1rvlwdvgx"]
 
-[ext_resource type="Script" path="res://scènes/transition.gd" id="1_55yek"]
 [ext_resource type="Texture2D" uid="uid://5lanjt1acdfj" path="res://graphismes/train transitions.svg" id="1_hdt6t"]
+[ext_resource type="Script" path="res://scènes/transition.gd" id="1_itbtw"]
 
 [node name="TransitionScene" type="Node2D"]
-script = ExtResource("1_55yek")
+script = ExtResource("1_itbtw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
