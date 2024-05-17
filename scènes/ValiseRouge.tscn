@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://3n5pc5fridkj"]
+[gd_scene load_steps=5 format=3 uid="uid://c3jvfgwxomdul"]
 
 [ext_resource type="Texture2D" uid="uid://cv0xe84ox67of" path="res://graphismes/valise rouge.svg" id="1_54y8h"]
 
@@ -121,7 +121,6 @@ func _input(event):
 			# Clic gauche de la souris
 			#print(\"Clic gauche de la souris détecté à la position : \", event.position)
 			grand_parant.toucher()
-			$\"../../AudioStreamPlayer2D\"
 	
 			
 "
@@ -149,5 +148,3 @@ shape = SubResource("RectangleShape2D_f83lf")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Area2D"]
 position = Vector2(3.5, -0.5)
 shape = SubResource("RectangleShape2D_37c40")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbhm86w5jbph0"]
+[gd_scene load_steps=5 format=3 uid="uid://bpp411a5mommi"]
 
 [ext_resource type="Script" path="res://scènes/Minigame Timer Clock.gd" id="1_4lv45"]
 [ext_resource type="Texture2D" uid="uid://br5gsyorpbgot" path="res://graphismes/minigame_timer_fond.svg" id="2_jqn33"]

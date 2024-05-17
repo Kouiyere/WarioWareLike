@@ -5,7 +5,7 @@ var timer_limit=3000
 var number_valise=0
 signal win
 signal lose
-var blockbool
+var blockbool=true
 var intValiseRechercher=1
 var x:int
 var y:int
@@ -30,7 +30,7 @@ func _initialise():
 	var prefab_jaune = preload("res://scènes/ValiseJaune.tscn")
 	var prefab_rouge = preload("res://scènes/ValiseRouge.tscn")
 	var rng = RandomNumberGenerator.new()
-	number_valise=rng.randi_range(5,30)
+	number_valise=rng.randi_range(5,15)
 	intValiseRechercher=rng.randi_range(1,number_valise-1)
 	for i in range(number_valise):
 		print("nouvelle valise dans SceneValise")
