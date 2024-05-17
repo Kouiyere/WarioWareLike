@@ -18,6 +18,7 @@ script = ExtResource("1_sn4yn")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="FondDébutItinéraire" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(3, -59)
 scale = Vector2(1.045, 1.045)
 texture = ExtResource("2_am3q3")
@@ -52,6 +53,7 @@ position = Vector2(0, -125)
 position = Vector2(123, -125)
 
 [node name="Passagère" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(437, -2)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_dikau")
