@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg3f6silvlusq"]
+[gd_scene load_steps=7 format=3 uid="uid://ck2gihq7st4u7"]
 
 [ext_resource type="Script" path="res://scènes/transition.gd" id="1_55yek"]
 [ext_resource type="Texture2D" uid="uid://5lanjt1acdfj" path="res://graphismes/train transitions.svg" id="1_hdt6t"]
+[ext_resource type="Texture2D" uid="uid://dd6dmpqivv06i" path="res://graphismes/porte transitions.svg" id="3_rdsw6"]
+
+[sub_resource type="GDScript" id="GDScript_yrc0e"]
+resource_name = "porte"
+script/source = "extends CharacterBody2D
+
+func _ready():
+	position= Vector2(0,0)
+
+func _process(delta):
+	move_and_collide(Vector2(2, 0))
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14hpj"]
+size = Vector2(293, 498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4xih"]
+size = Vector2(20, 528)
 
 [node name="TransitionScene" type="Node2D"]
 script = ExtResource("1_55yek")
@@ -15,5 +33,23 @@ texture = ExtResource("1_hdt6t")
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = SubResource("GDScript_yrc0e")
+
+[node name="PorteTransitions" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(1, 27)
+texture = ExtResource("3_rdsw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, 27)
+shape = SubResource("RectangleShape2D_14hpj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(86, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(332, 0)
+shape = SubResource("RectangleShape2D_u4xih")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

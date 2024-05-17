@@ -29,15 +29,12 @@ func loadMinigame():
 	add_child(minigame)
 	minigame.win.connect(minigameWon)
 	minigame.lose.connect(minigameLost)
-	#transitionScene.visible = false
-	#if sceneID==2:
-		#Camera2D.enabled= false
+	transitionScene.visible = false
 
 func minigameWon():
 	print("you win")
 	son_victoire.play()
 	minigame.queue_free()
-	Camera2D.enabled= true
 	transitionScene.visible = true
 	transitionScene.reload()
 
@@ -46,6 +43,5 @@ func minigameLost():
 	son_defaite.play()
 	health -= 1
 	minigame.queue_free()
-	Camera2D.enabled= true
 	transitionScene.visible = true
 	transitionScene.reload()

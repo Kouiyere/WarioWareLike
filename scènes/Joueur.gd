@@ -6,8 +6,6 @@ static var player_win= false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(self)
-	print(get_children())
 	$AnimatedSprite2D.play("walk_player")
 
 func followMouse():
