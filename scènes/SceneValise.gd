@@ -1,6 +1,8 @@
 extends Node2D
 class_name SceneValise
-
+var timer=0
+var timer_limit=3000
+var number_valise=0
 signal win
 signal lose
 
@@ -9,9 +11,9 @@ var x:int
 var y:int
 var randomiseColor:float
 
-var max=200
+var max=400-500
 
-var min=40
+var min=10-500
 
 var instance
 var listCouche = []
@@ -26,12 +28,13 @@ func _initialise():
 	var prefab_jaune = preload("res://scènes/ValiseJaune.tscn")
 	var prefab_rouge = preload("res://scènes/ValiseRouge.tscn")
 	var rng = RandomNumberGenerator.new()
-	for i in range(10):
-		
+	number_valise=rng.randi_range(5,30)
+	intValiseRechercher=rng.randi_range(1,number_valise-1)
+	for i in range(number_valise):
 		print("nouvelle valise dans SceneValise")
-		if( i == intValiseRechercher):
+		if( i ==intValiseRechercher ):
 			instance = prefab_jaune.instantiate()
-			print("flghspegh")
+			#print("flghspegh")
 		else:
 			randomiseColor=randf()
 			if(randomiseColor>0.5):
@@ -50,10 +53,13 @@ func _initialise():
 func toucher():
 	for i in listCouche:
 		if(coucheDeLaVallise<i):
+			#print("defait")
 			lose.emit()
 	if(len(listCouche)==0):
+		#print("defait")
 		lose.emit()
 	else:
+		#print("victoir")
 		win.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,7 +68,7 @@ func _estPresent(valise, boolean):
 	if(boolean):
 		coucheDeLaVallise=valise
 	listCouche.append(valise)
-	print(listCouche,coucheDeLaVallise)
+	#print(listCouche,coucheDeLaVallise)
 	
 func _estAbscan(valise,boolean):
 	if(boolean):
@@ -70,5 +76,8 @@ func _estAbscan(valise,boolean):
 	listCouche.erase(valise)
 	
 func _process(delta):
-	pass
+	if(timer>timer_limit):
+		lose.emit()
+	else:
+		timer+=1
 	

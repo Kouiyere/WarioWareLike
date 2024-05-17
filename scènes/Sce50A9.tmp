@@ -15,7 +15,7 @@ position = Vector2(92, 6)
 
 [node name="ValiseJaune" parent="." instance=ExtResource("3_w8xj7")]
 visible = false
-position = Vector2(-349, -21)
+position = Vector2(-115, 59)
 
 [node name="ValiseBleu2" parent="." instance=ExtResource("4_2awod")]
 visible = false
@@ -26,8 +26,8 @@ position = Vector2(-1, 2)
 texture = ExtResource("5_3y54b")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -323.0
-offset_top = -34.0
-offset_right = -252.0
-offset_bottom = -11.0
+offset_left = 220.0
+offset_top = 4.0
+offset_right = 291.0
+offset_bottom = 27.0
 text = "Find me !"
