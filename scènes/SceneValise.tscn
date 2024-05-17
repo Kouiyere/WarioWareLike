@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://eqv2h2jaogep"]
+[gd_scene load_steps=7 format=3 uid="uid://lamic8hnfn6a"]
 
 [ext_resource type="Script" path="res://scènes/SceneValise.gd" id="1_21ay2"]
-[ext_resource type="PackedScene" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]
-[ext_resource type="PackedScene" path="res://scènes/ValiseJaune.tscn" id="3_w8xj7"]
-[ext_resource type="PackedScene" path="res://scènes/ValiseRouge.tscn" id="4_2awod"]
+[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]
+[ext_resource type="PackedScene" uid="uid://bdgmympitocxs" path="res://scènes/ValiseJaune.tscn" id="3_w8xj7"]
+[ext_resource type="PackedScene" uid="uid://c3jvfgwxomdul" path="res://scènes/ValiseRouge.tscn" id="4_2awod"]
 [ext_resource type="Texture2D" uid="uid://dv86l8otts28x" path="res://graphismes/fond valises.png" id="5_3y54b"]
+[ext_resource type="PackedScene" uid="uid://bpp411a5mommi" path="res://scènes/minigame_timer_clock.tscn" id="6_bqn4x"]
 
 [node name="SceneValise" type="Node2D"]
 script = ExtResource("1_21ay2")
@@ -31,3 +32,6 @@ offset_top = -34.0
 offset_right = -252.0
 offset_bottom = -11.0
 text = "Find me !"
+
+[node name="Minigame Timer Clock" parent="." instance=ExtResource("6_bqn4x")]
+position = Vector2(-444, -220)

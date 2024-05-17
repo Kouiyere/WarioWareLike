@@ -10,7 +10,7 @@ var intValiseRechercher=1
 var x:int
 var y:int
 var randomiseColor:float
-
+var timer_oclock
 var max=400-400
 
 var min=10-500
@@ -21,6 +21,8 @@ var coucheDeLaVallise=-1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer_oclock=find_child("Minigame Timer Clock")
+	timer_oclock.timeout.connect(timeoutReached)
 	_initialise() # Replace with function body.
 	
 func _initialise():
@@ -76,8 +78,7 @@ func _estAbscan(valise,boolean):
 	listCouche.erase(valise)
 	
 func _process(delta):
-	if(timer>timer_limit):
-		lose.emit()
-	else:
-		timer+=1
-	
+	pass
+
+func timeoutReached():
+	lose.emit()
