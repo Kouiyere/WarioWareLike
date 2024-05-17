@@ -5,6 +5,8 @@ signal lose
 
 @export var answer: Area2D
 @export var starting_points: Array[Node]
+@onready var vrai= $bon_trajet
+@onready var faux= $mauvais_trajet
 var path: Sprite2D
 var paths: Array
 var target: Sprite2D
@@ -28,9 +30,11 @@ func _ready():
 
 func rightAnswer():
 	win.emit()
+	vrai.play()
 
 func wrongAnswer():
 	lose.emit()
+	faux.play()
 
 func setTarget():
 	if path.texture == paths[0]:

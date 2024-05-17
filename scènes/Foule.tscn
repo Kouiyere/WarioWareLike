@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b11iqvmepw10d"]
+[gd_scene load_steps=23 format=3 uid="uid://b11iqvmepw10d"]
 
 [ext_resource type="Texture2D" uid="uid://dqw15j8mmk1c2" path="res://graphismes/fond foule.png" id="1_v1hj4"]
 [ext_resource type="Texture2D" uid="uid://bkgbyhvuerkyv" path="res://graphismes/joueur_1.png" id="2_v2usl"]
@@ -12,8 +12,27 @@
 [ext_resource type="Texture2D" uid="uid://cu3s0rdlcj5lu" path="res://graphismes/ennemi_3.png" id="7_srguq"]
 [ext_resource type="Texture2D" uid="uid://dho78ngrqx4k1" path="res://graphismes/joueur_2.png" id="10_5h7oj"]
 [ext_resource type="Texture2D" uid="uid://d1ii65wvem6ou" path="res://graphismes/joueur_3.png" id="11_ophtq"]
+[ext_resource type="AudioStream" uid="uid://djufy16pk4hja" path="res://sons/YES.wav" id="12_us2je"]
 [ext_resource type="Script" path="res://scènes/collider_de_fin.gd" id="13_fcr5p"]
 [ext_resource type="AudioStream" uid="uid://csyd5xwuerqjj" path="res://sons/tadam.wav" id="14_7erte"]
+
+[sub_resource type="GDScript" id="GDScript_mpnt8"]
+resource_name = "gagné/perdu"
+script/source = "extends Node2D
+signal win
+signal lose
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Joueur.no_defeat== true:
+		lose.emit()
+	if Joueur.player_win== true:
+		win.emit()
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tf03"]
 radius = 20.025
@@ -68,20 +87,20 @@ size = Vector2(640, 20)
 size = Vector2(44, 623)
 
 [node name="Foule" type="Node2D"]
+script = SubResource("GDScript_mpnt8")
 
 [node name="FondFoule" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(605, 274)
+position = Vector2(0, -255)
 texture = ExtResource("1_v1hj4")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(605, 527)
 zoom = Vector2(2.75, 2.75)
 script = ExtResource("2_ynvgn")
 player = NodePath("../Player")
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(607, 326)
+position = Vector2(3, -205)
 collision_layer = 2
 script = ExtResource("6_b5s8f")
 
@@ -98,7 +117,7 @@ sprite_frames = SubResource("SpriteFrames_ipugo")
 animation = &"walk_enemy"
 
 [node name="Enemy2" type="CharacterBody2D" parent="."]
-position = Vector2(491, 117)
+position = Vector2(-113, -414)
 collision_layer = 2
 script = ExtResource("6_b5s8f")
 
@@ -115,7 +134,7 @@ sprite_frames = SubResource("SpriteFrames_ipugo")
 animation = &"walk_enemy"
 
 [node name="Enemy3" type="CharacterBody2D" parent="."]
-position = Vector2(712, 117)
+position = Vector2(108, -414)
 collision_layer = 2
 script = ExtResource("6_b5s8f")
 
@@ -132,7 +151,7 @@ sprite_frames = SubResource("SpriteFrames_ipugo")
 animation = &"walk_enemy"
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(603, 624)
+position = Vector2(0, 97)
 script = ExtResource("3_5necb")
 
 [node name="Collision_Joueur" type="CollisionShape2D" parent="Player"]
@@ -150,13 +169,18 @@ position = Vector2(6, -18)
 sprite_frames = SubResource("SpriteFrames_spup6")
 animation = &"walk_player"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-1063, -500)
+stream = ExtResource("12_us2je")
+volume_db = 2.786
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-459, 31)
+position = Vector2(-1063, -500)
 stream = ExtResource("4_masic")
 autoplay = true
 
 [node name="Fin" type="StaticBody2D" parent="."]
-position = Vector2(618, 11)
+position = Vector2(14, -520)
 collision_layer = 5
 script = ExtResource("13_fcr5p")
 
@@ -168,14 +192,14 @@ position = Vector2(-618, -11)
 stream = ExtResource("14_7erte")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(417, 373)
+position = Vector2(-187, -158)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(0, -39.5)
 shape = SubResource("RectangleShape2D_h1etl")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(793, 373)
+position = Vector2(189, -158)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(0, -39.5)

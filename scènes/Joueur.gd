@@ -1,10 +1,8 @@
 extends CharacterBody2D
 class_name Joueur
-
-signal win
-
 var selected= false
 static var no_defeat= false
+static var player_win= false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +20,8 @@ func _process(delta):
 		if selected:
 			followMouse()
 		if collision and collision.get_collider().name== "Fin":
-			win.emit()
+			player_win= true
+			$AudioStreamPlayer2D.play()
 			set_process(false)
 
 func _unhandled_input(event):
