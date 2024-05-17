@@ -1,5 +1,8 @@
 extends Node2D
 
+signal win
+signal lose
+
 @export var answer: Area2D
 @export var starting_points: Array[Node]
 var path: Sprite2D
@@ -24,10 +27,10 @@ func _ready():
 	print(answer)
 
 func rightAnswer():
-	print("Yeaaah")
+	win.emit()
 
 func wrongAnswer():
-	print("You are lost")
+	lose.emit()
 
 func setTarget():
 	if path.texture == paths[0]:
