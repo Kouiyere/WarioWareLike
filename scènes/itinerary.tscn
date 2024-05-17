@@ -1,25 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl78jmxo01irx"]
+[gd_scene load_steps=8 format=3 uid="uid://b0p84eg8wsmry"]
 
 [ext_resource type="Script" path="res://scènes/itinerary.gd" id="1_sn4yn"]
-[ext_resource type="Texture2D" uid="uid://ckhcobi37pu8x" path="res://graphismes/fond début itinéraire.png" id="2_am3q3"]
 [ext_resource type="Texture2D" uid="uid://b76seq4ry3qa5" path="res://graphismes/GPS (gros).png" id="2_sx4kd"]
-[ext_resource type="PackedScene" path="res://scènes/itinerary_start.tscn" id="3_pmyb4"]
+[ext_resource type="PackedScene" uid="uid://bqqehv5snc5gl" path="res://scènes/itinerary_start.tscn" id="3_pmyb4"]
 [ext_resource type="Texture2D" uid="uid://dfi6rhxn77r0e" path="res://graphismes/itinéraires 2.png" id="4_gle5g"]
 [ext_resource type="Script" path="res://scènes/Path.gd" id="5_f4ted"]
 [ext_resource type="Script" path="res://scènes/Itinerary End.gd" id="6_ihuy5"]
 [ext_resource type="Texture2D" uid="uid://cfvb3th6hkbtx" path="res://graphismes/passagère (en grand).png" id="7_dikau"]
-[ext_resource type="AudioStream" uid="uid://3wrbd2101btm" path="res://sons/musique itinéraire.wav" id="8_owh40"]
-[ext_resource type="AudioStream" uid="uid://rht5ulou1dyf" path="res://sons/correct.wav" id="9_2y6if"]
-[ext_resource type="AudioStream" uid="uid://dv1mmktfw712a" path="res://sons/incorrect.wav" id="10_dcd2q"]
 
 [node name="Itinerary" type="Node2D"]
 script = ExtResource("1_sn4yn")
-
-[node name="FondDébutItinéraire" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-6, 12)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("2_am3q3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -53,23 +43,9 @@ position = Vector2(0, -125)
 position = Vector2(123, -125)
 
 [node name="Passagère" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(420, 92)
+position = Vector2(437, -2)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_dikau")
 
 [node name="Target" type="Sprite2D" parent="."]
 position = Vector2(352, -196)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-459, 31)
-stream = ExtResource("8_owh40")
-autoplay = true
-
-[node name="bon_trajet" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-459, 31)
-stream = ExtResource("9_2y6if")
-
-[node name="mauvais_trajet" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-459, 31)
-stream = ExtResource("10_dcd2q")

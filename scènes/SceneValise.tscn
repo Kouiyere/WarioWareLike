@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://eqv2h2jaogep"]
+
+[ext_resource type="Script" path="res://scènes/SceneValise.gd" id="1_21ay2"]
+[ext_resource type="PackedScene" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]
+[ext_resource type="PackedScene" path="res://scènes/ValiseJaune.tscn" id="3_w8xj7"]
+[ext_resource type="PackedScene" path="res://scènes/ValiseRouge.tscn" id="4_2awod"]
+[ext_resource type="Texture2D" uid="uid://dv86l8otts28x" path="res://graphismes/fond valises.png" id="5_3y54b"]
+
+[node name="SceneValise" type="Node2D"]
+script = ExtResource("1_21ay2")
+
+[node name="ValiseBleu" parent="." instance=ExtResource("2_o6wao")]
+visible = false
+position = Vector2(92, 6)
+
+[node name="ValiseJaune" parent="." instance=ExtResource("3_w8xj7")]
+visible = false
+position = Vector2(-349, -21)
+
+[node name="ValiseBleu2" parent="." instance=ExtResource("4_2awod")]
+visible = false
+position = Vector2(141, 55)
+
+[node name="FondValises" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+texture = ExtResource("5_3y54b")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -323.0
+offset_top = -34.0
+offset_right = -252.0
+offset_bottom = -11.0
+text = "Find me !"

@@ -1,33 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bapfev2evht12"]
+[gd_scene load_steps=3 format=3 uid="uid://bapfev2evht12"]
 
 [ext_resource type="Script" path="res://scènes/main_scene.gd" id="1_vv73u"]
-[ext_resource type="Texture2D" uid="uid://dh2dfxkgm0jsr" path="res://graphismes/fond transitions.svg" id="2_othsm"]
-[ext_resource type="PackedScene" uid="uid://ck2gihq7st4u7" path="res://scènes/transition.tscn" id="2_qn361"]
-[ext_resource type="AudioStream" uid="uid://bhs0dilafrtej" path="res://sons/Victoire mini-jeu.wav" id="3_128sf"]
-[ext_resource type="AudioStream" uid="uid://bwpii4j1j6374" path="res://sons/Défaite mini-jeu.wav" id="4_vha0a"]
-[ext_resource type="AudioStream" uid="uid://d2csgbsaughpx" path="res://sons/Game Over.mp3" id="5_58gwn"]
-[ext_resource type="AudioStream" uid="uid://njac4sso0fr1" path="res://sons/Début mini-jeu.wav" id="6_x7vui"]
+[ext_resource type="PackedScene" uid="uid://rwf8imjhj3u5" path="res://scènes/transition.tscn" id="2_qn361"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_vv73u")
 health = 5
 
-[node name="FondTransitions" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_othsm")
-
 [node name="TransitionScene" parent="." instance=ExtResource("2_qn361")]
-texture_filter = 1
-scale = Vector2(1.28, 1.2)
-
-[node name="Victoire" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_128sf")
-
-[node name="Defaite" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_vha0a")
-
-[node name="Game_Over" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_58gwn")
-
-[node name="Transition" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_x7vui")

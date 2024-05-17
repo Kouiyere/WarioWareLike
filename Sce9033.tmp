@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://lamic8hnfn6a"]
+
+[ext_resource type="Script" path="res://scenes/SceneValise.gd" id="1_5r55t"]
+[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scenes/ValiseBleu.tscn" id="2_gqkng"]
+[ext_resource type="PackedScene" uid="uid://bdgmympitocxs" path="res://scenes/ValiseJaune.tscn" id="3_h5efi"]
+[ext_resource type="PackedScene" uid="uid://c3jvfgwxomdul" path="res://scenes/ValiseRouge.tscn" id="4_vm2cy"]
+
+[node name="SceneValise" type="Node2D"]
+script = ExtResource("1_5r55t")
+
+[node name="ValiseBleu" parent="." instance=ExtResource("2_gqkng")]
+position = Vector2(92, 6)
+
+[node name="ValiseJaune" parent="." instance=ExtResource("3_h5efi")]
+position = Vector2(195, 16)
+
+[node name="ValiseBleu2" parent="." instance=ExtResource("4_vm2cy")]
+position = Vector2(141, 55)

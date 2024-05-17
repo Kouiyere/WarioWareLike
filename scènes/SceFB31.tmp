@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bapfev2evht12"]
+
+[ext_resource type="PackedScene" uid="uid://dgbfp52ochmxy" path="res://scènes/ValiseBleu.tscn" id="1_6r66f"]
+[ext_resource type="PackedScene" uid="uid://bst0x1o5e50vu" path="res://scènes/ValiseJaune.tscn" id="2_3tfrc"]
+[ext_resource type="PackedScene" uid="uid://d0akyut4it1l5" path="res://scènes/valise_rouge.tscn" id="3_m53hk"]
+
+[sub_resource type="GDScript" id="GDScript_j3ofi"]
+script/source = "extends Node2D
+class_name Main
+
+var intValiseRechercher=1
+var vie=3
+var x:int
+var y:int
+var randomiseColor:float
+
+var max=100
+var min=0
+
+var instance
+static var listCouche = []
+static var finDePartie=false
+static var coucheDeLaVallise=-1
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	_initialise() # Replace with function body.
+	
+func _initialise():
+	var prefab_bleu = preload(\"res://scènes/node_2d.tscn\")
+	var prefab_jaune= preload(\"res://scènes/ValiseJaune.tscn\")
+	var prefab_rouge= preload(\"res://scènes/valise_rouge.tscn\")
+	for i in range(10):
+		print(\"nouvelle valise dans Main\")
+		var rng = RandomNumberGenerator.new()
+		randomiseColor=randf()
+		if(randomiseColor>0.5):
+			instance = prefab_bleu.instantiate()
+		else:
+			instance = prefab_rouge.instantiate()
+
+		add_child(instance)
+		if(i == intValiseRechercher):
+			get_child(0).get_child(0).get_child(1).estChercher=true
+		instance.z_index=i
+		x=rng.randi_range(min,max)
+		y=rng.randi_range(min,max)
+		instance.position= Vector2(x,y)
+		instance.visible=true
+
+func echec():
+	print(\"defait\")
+
+
+func victoir():
+	print(\"victoir\")
+	
+static func toucher( valise, boolean):
+	if(boolean):
+		coucheDeLaVallise=valise
+		print(\"trouver!\")
+	else:
+		listCouche.append(valise)
+	finDePartie=true
+	print(\"Toucher !\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if(finDePartie):
+		for i in listCouche:
+			print(i)
+			print(coucheDeLaVallise)
+			if(coucheDeLaVallise<i):
+				echec()
+		victoir()
+		listCouche=[]
+	finDePartie=false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dii0"]
+size = Vector2(1155, 674)
+
+[node name="SceneValise" type="Node2D"]
+script = SubResource("GDScript_j3ofi")
+
+[node name="ValiseBleu" parent="." node_paths=PackedStringArray("zone") instance=ExtResource("1_6r66f")]
+visible = false
+position = Vector2(577, 132)
+zone = NodePath("../Area2D")
+
+[node name="ValiseJaune" parent="." node_paths=PackedStringArray("zone") instance=ExtResource("2_3tfrc")]
+position = Vector2(201, 137)
+zone = NodePath("../Area2D")
+
+[node name="ValiseRouge" parent="." node_paths=PackedStringArray("zone") instance=ExtResource("3_m53hk")]
+visible = false
+position = Vector2(86, 163)
+zone = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(567.5, 327)
+shape = SubResource("RectangleShape2D_8dii0")

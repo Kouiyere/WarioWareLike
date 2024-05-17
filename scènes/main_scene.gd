@@ -1,15 +1,12 @@
 extends Node2D
 
-@onready var son_victoire= $Victoire
-@onready var son_defaite= $Defaite
-@onready var son_game_over= $Game_Over
-@onready var son_transition= $Transition
 var transitionScene: Node2D
 var minigame
 var MINIGAME_SCENES_ARRAY: Array = [
 	"res://scènes/fourneau_minigame.tscn",
 	"res://scènes/itinerary.tscn",
-	"res://scènes/Foule.tscn"
+	"res://scènes/SceneValise.tscn",
+	"res://scènes/cadran_minigame.tscn"
 ]
 @export var health: int
 
@@ -18,7 +15,6 @@ func _ready():
 	transitionScene = find_child("TransitionScene")
 	load("TransitionScene")
 	transitionScene.transitionEnd.connect(loadMinigame)
-	son_transition.play()
 
 
 func loadMinigame():
@@ -33,14 +29,12 @@ func loadMinigame():
 
 func minigameWon():
 	print("you win")
-	son_victoire.play()
 	minigame.queue_free()
 	transitionScene.visible = true
 	transitionScene.reload()
 
 func minigameLost():
 	print("you lost")
-	son_defaite.play()
 	health -= 1
 	minigame.queue_free()
 	transitionScene.visible = true

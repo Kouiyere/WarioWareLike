@@ -1,6 +1,11 @@
-extends Area2D
+[gd_scene load_steps=5 format=3 uid="uid://c3jvfgwxomdul"]
 
-var listAléatoire=[1,2,3,4]
+[ext_resource type="Texture2D" uid="uid://cv0xe84ox67of" path="res://graphismes/valise rouge.svg" id="1_54y8h"]
+
+[sub_resource type="GDScript" id="GDScript_eyl28"]
+script/source = "extends Area2D
+
+var listAléatoire=[5]
 var listAléatoireInitialisation=[]
 var rotation_direction = 0
 var velocity
@@ -13,17 +18,19 @@ var rng = RandomNumberGenerator.new()
 var min=0
 var max=4
 var direction
-var maxVitesse=0
-var vitesse
-var zone:Area2D
+var maxVitesse
+var vistesse_avance=2
+var vitesse=2
+var vitesseAléatoire=20
+var timertime=100
 var vector:Vector2
 var timer_avance=-1
-var distance_avance=15
+var distance_avance=30
 var grand_parant
-@export var max_x=1000
-@export var max_y=1000
-@export var min_x=200
-@export var min_y=200
+@export var max_x=700-500
+@export var max_y=500-100
+@export var min_x=300-500
+@export var min_y=200-100
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +50,7 @@ func _ready():
 	mouse_exited.connect(_on_mouse_exited)
 	parent_node = get_parent().get_parent()
 	grand_parant=parent_node.get_parent()
+	maxVitesse=rng.randi_range(2,10)
 	_limit()
 
 func _on_mouse_entered():
@@ -70,9 +78,9 @@ func _process(delta):
 	_limit()
 	if(timer_avance>-1):
 		timer_avance-=1
-		parent_node.position+=vector
-	
-	if(true):
+		parent_node.position+=vector*0.5
+		
+	if(false):
 		if (timer<20):#Timer
 			timer+=1
 		else:
@@ -80,30 +88,63 @@ func _process(delta):
 			direction=rng.randi_range(min,max)
 			vitesse=rng.randi_range(min,maxVitesse)
 			_avance(direction,vitesse)
-	if(false):
-		if (timer<100):#Timer
-			timer+=1
+	
+	if (timer<20):#Timer
+		timer+=1
+	else:
+		timer=0
+		if (timertime<100):#Timer
+			timertime+=1
 		else:
 			timer=0
 			if(listAléatoire[curseurListAléatoire]==1):
-				_avance(0,1)
+				_avance(0,vistesse_avance)
 			if(listAléatoire[curseurListAléatoire]==2):
-				_avance(1,1)
+				_avance(1,vistesse_avance)
 			if(listAléatoire[curseurListAléatoire]==3):
-				_avance(2,1)
+				_avance(2,vistesse_avance)
 			if(listAléatoire[curseurListAléatoire]==4):
-				_avance(3,1)
+				_avance(3,vistesse_avance)
+			if(listAléatoire[curseurListAléatoire]==5):
+				direction=rng.randi_range(min,max)
+				vitesse=rng.randi_range(min,maxVitesse)
+				_avance(direction,vitesse)
 			#position=position+Vector2(0,-1)
 			curseurListAléatoire=curseurListAléatoire+1
-			#print("avance")
-			if(curseurListAléatoire==4):
+			#print(\"avance\")
+			if(curseurListAléatoire==len(listAléatoire)):
 				curseurListAléatoire=0
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and drapeauxbool:
 			# Clic gauche de la souris
-			#print("Clic gauche de la souris détecté à la position : ", event.position)
+			#print(\"Clic gauche de la souris détecté à la position : \", event.position)
 			grand_parant.toucher()
 	
 			
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f83lf"]
+size = Vector2(56.5, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37c40"]
+size = Vector2(27, 55)
+
+[node name="ValiseBleu" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_54y8h")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+script = SubResource("GDScript_eyl28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(3.75, 2.75)
+shape = SubResource("RectangleShape2D_f83lf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_37c40")

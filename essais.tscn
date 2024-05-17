@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbucj1a4so4q"]
+
+[ext_resource type="PackedScene" uid="uid://dretnt8n6utut" path="res://valise.tscn" id="1_8p5dn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Valise" parent="." instance=ExtResource("1_8p5dn")]
+
+[node name="Valise2" parent="." instance=ExtResource("1_8p5dn")]
+position = Vector2(145, 24)
