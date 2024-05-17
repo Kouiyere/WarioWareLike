@@ -11,7 +11,7 @@ var x:int
 var y:int
 var randomiseColor:float
 
-var max=400-500
+var max=400-400
 
 var min=10-500
 
