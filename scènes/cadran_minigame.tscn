@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://byp2pbfm6qf3v" path="res://graphismes/aiguille.png" id="2_wx4bc"]
 [ext_resource type="Texture2D" uid="uid://c0s586k4au87x" path="res://graphismes/cadran.png" id="3_qtv80"]
 [ext_resource type="AudioStream" uid="uid://dd3pg7eirq7uv" path="res://sons/musique cadran.wav" id="4_ojkf1"]
-[ext_resource type="Texture2D" uid="uid://wwan8bx3b54w" path="res://graphismes/zone cadran@2x.png" id="5_y0usj"]
-[ext_resource type="Texture2D" uid="uid://bbby8km56676b" path="res://graphismes/zone cadran vert@2x.png" id="6_m56yq"]
+[ext_resource type="Texture2D" path="res://graphismes/zone cadran@2x.png" id="5_y0usj"]
+[ext_resource type="Texture2D" path="res://graphismes/zone cadran vert@2x.png" id="6_m56yq"]
 [ext_resource type="Script" path="res://scènes/CadranReadyText.gd" id="8_tsnko"]
 
 [node name="CadranMinigame" type="Node2D"]
