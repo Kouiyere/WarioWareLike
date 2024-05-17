@@ -5,7 +5,7 @@ var minigame
 var MINIGAME_SCENES_ARRAY: Array = [
 	"res://scènes/fourneau_minigame.tscn",
 	"res://scènes/itinerary.tscn",
-	"res://scènes/SceneValise.tscn"
+	"res://scènes/cadran_minigame.tscn"
 ]
 @export var health: int
 
