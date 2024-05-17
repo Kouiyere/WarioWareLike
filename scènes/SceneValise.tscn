@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhqjtxu7utiuh"]
+[gd_scene load_steps=6 format=3 uid="uid://eqv2h2jaogep"]
 
 [ext_resource type="Script" path="res://scènes/SceneValise.gd" id="1_21ay2"]
 [ext_resource type="PackedScene" path="res://scènes/ValiseBleu.tscn" id="2_o6wao"]

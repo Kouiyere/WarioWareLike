@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bx81o47ehvuwr" path="res://graphismes/mec_locomotive.png" id="8_ehy55"]
 [ext_resource type="AudioStream" uid="uid://b2upsese8x0jw" path="res://sons/musique charbon.wav" id="9_msgx5"]
 [ext_resource type="Script" path="res://scènes/FourneauReadyText.gd" id="11_e6y7d"]
-[ext_resource type="PackedScene" uid="uid://bnp4b3plvljw6" path="res://scènes/minigame_timer_clock.tscn" id="12_fo5wq"]
+[ext_resource type="PackedScene" path="res://scènes/minigame_timer_clock.tscn" id="12_fo5wq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7i0u"]
 
