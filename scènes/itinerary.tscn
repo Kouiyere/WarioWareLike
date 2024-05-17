@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dfi6rhxn77r0e" path="res://graphismes/itinéraires 2.png" id="4_gle5g"]
 [ext_resource type="Script" path="res://scènes/Path.gd" id="5_f4ted"]
 [ext_resource type="Script" path="res://scènes/Itinerary End.gd" id="6_ihuy5"]
-[ext_resource type="Texture2D" uid="uid://bq0t2bfru0kcu" path="res://graphismes/passagère (en grand).png" id="7_dikau"]
+[ext_resource type="Texture2D" uid="uid://cfvb3th6hkbtx" path="res://graphismes/passagère (en grand).png" id="7_dikau"]
 
 [node name="Itinerary" type="Node2D"]
 script = ExtResource("1_sn4yn")

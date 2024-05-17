@@ -22,9 +22,9 @@ func _ready():
 	_initialise() # Replace with function body.
 	
 func _initialise():
-	var prefab_bleu = preload("res://scenes/ValiseBleu.tscn")
-	var prefab_jaune = preload("res://scenes/ValiseJaune.tscn")
-	var prefab_rouge = preload("res://scenes/ValiseRouge.tscn")
+	var prefab_bleu = preload("res://scènes/ValiseBleu.tscn")
+	var prefab_jaune = preload("res://scènes/ValiseJaune.tscn")
+	var prefab_rouge = preload("res://scènes/ValiseRouge.tscn")
 	var rng = RandomNumberGenerator.new()
 	for i in range(10):
 		
