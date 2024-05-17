@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbhm86w5jbph0"]
+
+[ext_resource type="Script" path="res://scènes/Minigame Timer Clock.gd" id="1_4lv45"]
+[ext_resource type="Texture2D" path="res://graphismes/minigame_timer_fond.svg" id="2_jqn33"]
+[ext_resource type="Texture2D" path="res://graphismes/minigame_timer_quarter.svg" id="3_ujm8m"]
+[ext_resource type="Texture2D" path="res://graphismes/minigame_timer_tour.svg" id="4_hp11x"]
+
+[node name="Minigame Timer Clock" type="Node2D"]
+script = ExtResource("1_4lv45")
+
+[node name="Fond" type="Sprite2D" parent="."]
+texture = ExtResource("2_jqn33")
+
+[node name="Quarter1" type="Sprite2D" parent="."]
+position = Vector2(50, -50)
+texture = ExtResource("3_ujm8m")
+
+[node name="Quarter2" type="Sprite2D" parent="."]
+position = Vector2(50, 50)
+rotation = 1.5708
+texture = ExtResource("3_ujm8m")
+
+[node name="Quarter3" type="Sprite2D" parent="."]
+position = Vector2(-50, 50)
+rotation = -3.14159
+texture = ExtResource("3_ujm8m")
+
+[node name="Quarter4" type="Sprite2D" parent="."]
+position = Vector2(-50, -50)
+rotation = -1.5708
+texture = ExtResource("3_ujm8m")
+
+[node name="Tour" type="Sprite2D" parent="."]
+texture = ExtResource("4_hp11x")
+
+[node name="Minigame Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Minigame Timer" to="." method="_on_minigame_timer_timeout"]
