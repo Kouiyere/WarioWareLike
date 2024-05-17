@@ -1,6 +1,11 @@
 extends Node2D
 
-var transitionScene: Node2D
+@onready var victoire= $victoire
+@onready var defaite= $defaite
+@onready var GameOver= $GameOver
+@onready var transitionSound= $Transition
+var transition
+var transitionScene
 var minigame
 var MINIGAME_SCENES_ARRAY: Array = [
 	"res://scènes/fourneau_minigame.tscn",
@@ -13,9 +18,11 @@ var currentMinigamID: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	transitionScene = find_child("TransitionScene")
-	load("TransitionScene")
-	transitionScene.transitionEnd.connect(loadMinigame)
+	transitionSound.play()
+	transitionScene = load("res://scènes/transition.tscn")
+	transition = transitionScene.instantiate()
+	add_child(transition)
+	transition.transitionEnd.connect(loadMinigame)
 
 
 func loadMinigame():
@@ -32,18 +39,28 @@ func loadMinigame():
 	minigame.win.connect(minigameWon)
 	minigame.lose.connect(minigameLost)
 	currentMinigamID = IDtoLoad
-	transitionScene.visible = false
+	transition.queue_free()
+	#transitionScene.visible = false
 
 func minigameWon():
 	print("you win")
 	minigame.queue_free()
-	transitionScene.visible = true
-	transitionScene.reload()
+	#transitionScene.visible = true
+	victoire.play()
+	#transitionScene.reload()
+	transitionScene = load("res://scènes/transition.tscn")
+	transition = transitionScene.instantiate()
+	add_child(transition)
+	transition.transitionEnd.connect(loadMinigame)
 
 func minigameLost():
 	print("you lost")
 	health -= 1
 	minigame.queue_free()
-	transitionScene.visible = true
-	transitionScene.reload()
-
+	#transitionScene.visible = true
+	defaite.play()
+	#transitionScene.reload()
+	transitionScene = load("res://scènes/transition.tscn")
+	transition = transitionScene.instantiate()
+	add_child(transition)
+	transition.transitionEnd.connect(loadMinigame)
